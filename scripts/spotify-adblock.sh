@@ -1,10 +1,9 @@
 #!/bin/bash
 echo "installing new spotify"
 wget -q -O tmp.html http://repository-origin.spotify.com/pool/non-free/s/spotify-client/
-RELEASE_URL=`python .scripts/latestspotify.py`
+RELEASE_URL=`python scripts/latestspotify.py`
 rm tmp.html
-wget -q $RELEASE_URL
-
+wget http://repository-origin.spotify.com/pool/non-free/s/spotify-client/$RELEASE_URL
 sudo dpkg -i spotify-client*.deb
 sudo rm spotify-client*.deb
 #########
