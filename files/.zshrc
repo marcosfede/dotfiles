@@ -84,5 +84,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.bash_aliases
 source ~/.envvariables
-. /etc/profile.d/vte.sh
 source ~/.vim/plugged/gruvbox/gruvbox_256palette.sh
+. /etc/profile.d/vte.sh
