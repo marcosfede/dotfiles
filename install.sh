@@ -41,6 +41,7 @@ GUI=$(zenity --list --checklist \
 	FALSE "Fix Unity gtk border" "Fixes Unity gtk3 border bug" \
 	FALSE "Install Unity-tweak + compiz" "Install Unity-tweak-tools + compizconfig-settings-manager" \
 	FALSE "Install zsh+theme" "Install Unity-tweak-tools + compizconfig-settings-manager" \
+	FALSE "Install Synapse" "Installs Synapse Launcher" \
 	FALSE "Clean-Up Junk" "Removes unnecessary packages and the local repository of retrieved package files." \
 	--separator=', ');
 clear
@@ -65,7 +66,7 @@ then
 fi
 
 
-# Install Proprietary Drivers Action
+# Install Autokey action
 if [[ $GUI == *"Install Autokey"* ]]
 then
 	echo '-------------------------------------------------------'
@@ -333,6 +334,13 @@ then
 	. ./scripts/zsh-ohmyzsh.sh
 fi
 
+# Install Synapse action
+if [[ $GUI == *"Install Synapse"* ]]
+then
+	echo '-------------------------------------------------------'
+	echo "installing Synapse"
+	sudo apt-get install -y synapse
+fi
 
 # Clean-Up Junk Action
 if [[ $GUI == *"Clean-Up Junk"* ]]

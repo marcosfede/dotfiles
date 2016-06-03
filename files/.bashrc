@@ -116,5 +116,3 @@ if ! shopt -oq posix; then
   fi
 fi
 source ~/.envvariables
-export PATH=/home/fede/.local/bin/:/home/fede/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/fede/bin
-export PATH=/home/fede/.local/bin/:/home/fede/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/fede/bin

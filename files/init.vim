@@ -4,7 +4,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'whatyouhide/vim-gotham'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'ternjs/tern_for_vim'
 Plug 'Yggdroot/indentLine'
 call plug#end()
