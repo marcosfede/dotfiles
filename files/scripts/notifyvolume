@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec /usr/bin/notify-send " " -i notification-audio-volume-high -h int:value:"$(amixer -c "CA0106" -q | grep -A5 Master | grep '%' | cut -d'[' -f2 | cut -d']' -f1)" -h string:synchronous:volume

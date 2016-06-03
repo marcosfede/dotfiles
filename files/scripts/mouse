@@ -1,0 +1,4 @@
+#!/bin/sh
+xinput set-prop 8 "Device Accel Profile" -1
+xinput set-prop 8 "Device Accel Constant Deceleration" 0.65
+

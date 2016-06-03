@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+import fcntl, os, sys, time
+from Xlib import X, display, ext
+
+DELAY = 1
+CLICKS = 30000
+PROGRAM_NAME = os.path.basename(sys.argv[0])
+
+def locked(lockfile='/tmp/%s.lock' % PROGRAM_NAME):
+    locked.file = open(lockfile, 'w')
+    try:
+        fcntl.lockf(locked.file, fcntl.LOCK_NB|fcntl.LOCK_EX)
+    except IOError: return True
+
+if locked():
+    print('Stopping.')
+    os.system("pkill -f 'python.*%s'" % PROGRAM_NAME)
+else:
+    print('Here come the clicks...')
+    d = display.Display()
+    for i in range(CLICKS):
+        ext.xtest.fake_input(d, X.ButtonPress, 1); d.sync()
+        ext.xtest.fake_input(d, X.ButtonRelease, 1); d.sync()
+        time.sleep(DELAY)

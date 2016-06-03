@@ -1,0 +1,9 @@
+#!/bin/bash
+
+volumen=$(amixer sget Front | grep "Front Left:" | grep '%' | cut -d'[' -f2 | cut -d'%' -f1);
+
+if [ $volumen = "0" ]; then
+	$(notify-send "Parlantes Muteados" -i notification-audio-volume-muted -h string:synchronous:volume);
+else
+	$(notify-send "Parlantes Activados" -i notification-audio-volume-high -h string:synchronous:volume);
+fi
