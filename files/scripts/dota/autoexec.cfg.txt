@@ -1,0 +1,73 @@
+con_enable "1"      //Enables Console
+dota_force_right_click_attack "1"
+dota_camera_disable_zoom "1"    //Can't zoom camera in
+dota_disable_range_finder 0     //Shows spells are within casting range of targeted area/target 
+dota_minimap_hero_size 850     //Changes the size of heroes on the minimap
+dota_minimap_misclick_time "0"   //Removes delay before allowing input on minimap
+dota_sf_game_end_delay "0"
+dota_quit_immediate "1"                 //If enabled, Dota will quit immediately rather than prompting to confirm.
+//Auto attack toggle (must be first configured here to work properly)
+alias "auto_attack_toggle" "auto_attack_toggle_on"
+alias "auto_attack_toggle_on" "playsound sounds/ui/tutorial_ui_ding_01.vsnd_c;dota_player_units_auto_attack 1; dota_player_units_auto_attack_after_spell 1; alias auto_attack_toggle auto_attack_toggle_off; say_student Auto attack enabled"
+alias "auto_attack_toggle_off" "playsound sounds/ui/ui_upgrade_ability_01.vsnd_c;dota_player_units_auto_attack 0; dota_player_units_auto_attack_after_spell 0; alias auto_attack_toggle auto_attack_toggle_on; say_student Auto attack disabled"
+// Shuffle camera to rune positions while pressing the keys and back to hero on release
+alias "+rune" "top_rune"
+alias "-rune" "dota_recent_event; dota_recent_event; +dota_camera_follow"
+alias "top_rune" "dota_camera_set_lookatpos -2273 1800; alias +rune bottom_rune"
+alias "bottom_rune" "dota_camera_set_lookatpos 3035 -2350; alias +rune top_rune"
+//Toggle orb autocast
+//(one click button to toggle on every auto-cast ability, this works because no hero has more than 1 ability so it just tries to do it for all of them)
+alias "orb_toggle" "dota_ability_autocast 0; dota_ability_autocast 1; dota_ability_autocast 2; dota_ability_autocast 3; dota_ability_autocast 4;dota_ability_autocast 5"
+fps_max "60"				//Forces client to a max FPS limit
+dota_cheap_water 1                      //Crappy water, better performance
+cl_globallight_shadow_mode 0		//Shadow options
+r_deferred_height_fog 0			//Fog
+r_deferred_simple_light 1		//World Lighting
+r_deferred_additive_pass "0"            //Additive light pass  
+r_deferred_specular "0"                 //Specular 
+r_deferred_specular_bloom "0"           //Specular bloom 
+//NOT IN D2REBORN - r_screenspace_aa 0			//Anti-aliasing 
+r_ssao "0"                              //Ambient occlusion 
+//NOT IN D2REBORN - mat_picmip "0"                          //Textures quality (high).
+dota_embers "0" 			//turns off fire on mainmenu, less gpu/cpu load
+sv_forcepreload "1"			//Force server side preloading. 
+engine_no_focus_sleep "0"               //Reduces resources consumed when dota 2 loses focus.
+dota_ambient_creatures "0"              //Ambient creatures 
+cl_interp "0.033"                       // Interpolate object positions starting this many seconds in past                      (Default 0.055, Min 0.033)
+cl_interp_ratio "1"                     // Multiplies final result of cl_interp                                                 (Default 2)
+cl_smoothtime "0.01"                    // When errors occur smooth display over X time, 0 Disables                             (Default 0.1)
+rate "80000"                            // Total amount of bandwidth Dota 2 may use                                             (Default 80000)
+cl_updaterate "30"                      // Amount of updates recieved from server per second                                    (Default 30, Max 30)
+cl_cmdrate "30"                         // Amount of updates sent to server per second                                          (Default 30, Max 30)
+cl_smooth "1"
+cl_lagcompensation "1"
+cl_pred_optimize "2"
+dota_player_auto_repeat_right_mouse 1 
+dota_player_units_auto_attack "0"
+dota_player_units_auto_attack_after_spell "1"  
+// Minimap icon scaling by heroes proximity to each other
+// When heroes are close together, their icons will be reduced in size on the minimap so that you can more easily see
+// who is there from the minimap. Without this, icons close together will overlap more and its hard to tell who is
+// there by looking at the minimap.
+dota_minimap_hero_scalar 1
+
+// Proximity in pixels to begin scaling (default 12)
+dota_minimap_hero_scalar_distance 20
+ 
+// Minimum scaled size (default 500)
+dota_minimap_hero_scalar_minimum 600
+
+// BINDINGS
+//Auto-attack toggle (Custom command)
+bind "N" "auto_attack_toggle"
+// Shuffle camera to rune positions while pressing the keys and back to hero on release
+bind "F4" "+rune"  
+//Toggle orb autocast
+//(one click button to toggle on every auto-cast ability, this works because no hero has more than 1 ability so it just tries to do it for all of them)
+bind "U" "orb_toggle"  
+bind "F10" "exec autoexec.cfg"	 // Executes this autoexec again
+bind "F11" "toggleconsole" // Open Console
+echo "---------------------------------------------"
+echo " Custom settings loaded!" "
+echo "---------------------------------------------"
+memory 

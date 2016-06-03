@@ -1,0 +1,94 @@
+###########################
+# xbindkeys configuration #
+###########################
+#
+# Version: 0.1.3
+#
+# If you edit this, do not forget to uncomment any lines that you change.
+# The pound(#) symbol may be used anywhere for comments.
+#
+# A list of keys is in /usr/include/X11/keysym.h and in
+# /usr/include/X11/keysymdef.h 
+# The XK_ is not needed. 
+#
+# List of modifier (on my keyboard): 
+#   Control, Shift, Mod1 (Alt), Mod2 (NumLock), 
+#   Mod3 (CapsLock), Mod4, Mod5 (Scroll). 
+#
+# Another way to specifie a key is to use 'xev' and set the 
+# keycode with c:nnn or the modifier with m:nnn where nnn is 
+# the keycode or the state returned by xev 
+#
+# This file is created by xbindkey_config 
+# The structure is : 
+# # Remark 
+# "command" 
+# m:xxx + c:xxx 
+# Shift+... 
+
+
+
+
+#keystate_numlock = enable
+#keystate_scrolllock = enable
+#keystate_capslock = enable
+
+
+
+#sidemiddle
+"/home/fede/scripts/mousebindings/sidemiddle"
+   b:10 + Release
+
+#mwheel left
+"/home/fede/scripts/mousebindings/mwheelleft"
+   b:6
+
+#mwheel right
+"/home/fede/scripts/mousebindings/mwheelright"
+   b:7
+
+#mouse sideup
+"/home/fede/scripts/mousebindings/sideup"
+   b:9
+
+#mouse sidedown
+"/home/fede/scripts/mousebindings/sidedown"
+   b:8
+
+#dpidown
+"/home/fede/scripts/mousebindings/dpidown"
+   b:11
+
+#dpiup
+"/home/fede/scripts/mousebindings/dpiup"
+   b:12
+
+#mute
+"/usr/bin/amixer -q sset Master 0% && /home/fede/scripts/notifyvolume"
+   Control+KP_0
+
+#kb raise
+"/usr/bin/amixer -q sset Master 2+ && /home/fede/scripts/notifyvolume"
+    m:0x14 + c:111
+    Control+Mod2 + Up 
+
+"xbindkeys_show"
+   control+shift + q
+
+#unmutefront
+"/usr/bin/amixer -q sset Front 100 && /usr/bin/amixer -q sset Headphone 100 unmute && /home/fede/scripts/frontmute"
+    m:0x14 + c:88
+    Control+Mod2 + KP_Down 
+
+#kb lower
+"/usr/bin/amixer -q sset Master 2- && /home/fede/scripts/notifyvolume"
+    m:0x14 + c:116
+    Control+Mod2 + Down 
+
+#mutefront
+"/usr/bin/amixer -q sset Front 0 && /usr/bin/amixer -q sset Headphone 100 unmute && /home/fede/scripts/frontmute"
+    m:0x14 + c:87
+    Control+Mod2 + KP_End 
+
+#
+# End of xbindkeys configuration

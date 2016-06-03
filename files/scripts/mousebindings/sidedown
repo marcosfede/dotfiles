@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Run one of the following terminal commands and click on window to get item value
+# 	To get Class, run:
+#		xprop |nawk -F = '/WM_CLASS/ {N=split($2, A, ", ");  gsub(/\"/,"",A[2]); print A[2]; exit;}'
+# 	To get AltClass, run:
+#		xprop |nawk -F = '/WM_CLASS/ {N=split($2, A, " ");  gsub(/\"/,"",A[1]);  gsub(/,/,"",A[1]); print A[1]; exit;}'
+#
+# If the window cannot be clicked on (e.g., fullscreen apps), then run these instead, switching to the app within 5 seconds
+#	of issuing the command, and then back to the terminal a few seconds later
+#	To get Class, run:
+#		sleep 5; xprop -id `xprop -root |nawk '/_NET_ACTIVE_WINDOW/ {print $5; exit;}'` |nawk -F = '/WM_CLASS/ {N=split($2, A, ", ");  gsub(/\"/,"",A[2]); print A[2]; exit;}'
+#	To get AltClass, run:
+#		sleep 5; xprop -id `xprop -root |nawk '/_NET_ACTIVE_WINDOW/ {print $5; exit;}'` |nawk -F = '/WM_CLASS/ {N=split($2, A, " ");  gsub(/\"/,"",A[1]);  gsub(/,/,"",A[1]); print A[1]; exit;}'
+#
+# You should generally only need Class; AltClass is only useful if Class is ambigious (usually AltClass is more ambigious)
+
+Class=`xprop -id \`xprop -root |nawk '/_NET_ACTIVE_WINDOW/ {print $5; exit;}'\` |nawk -F = '/WM_CLASS/ {N=split($2, A, ", ");  gsub(/\"/,"",A[2]); print A[2]; exit;}'`
+#AltClass=`xprop -id \`xprop -root |nawk '/_NET_ACTIVE_WINDOW/ {print $5; exit;}'\` |nawk -F = '/WM_CLASS/ {N=split($2, A, " ");  gsub(/\"/,"",A[1]);  gsub(/,/,"",A[1]); print A[1]; exit;}'`
+
+case "$Class" in
+	dota2)
+		/usr/bin/xte 'key KP_3' &
+		;;
+#	Gnumeric)
+#		/usr/bin/xte 'key u' &
+#		;;
+	*)		# this is the default action
+		/usr/bin/amixer -c "CA0106" -q sset Master 5- && /home/fede/scripts/notifyvolume &
+		;;
+esac
+exit 0

@@ -1,0 +1,40 @@
+#
+# /home/fede/.nvidia-settings-rc
+#
+# Configuration file for nvidia-settings - the NVIDIA X Server Settings utility
+# Generated on Sun Aug 23 05:00:38 2015
+#
+
+# ConfigProperties:
+
+RcFileLocale = C
+ToolTips = Yes
+DisplayStatusBar = Yes
+SliderTextEntries = Yes
+IncludeDisplayNameInConfigFile = No
+ShowQuitDialog = No
+UpdateRulesOnProfileNameChange = Yes
+Timer = PowerMizer_Monitor_(GPU_0),Yes,1000
+Timer = Thermal_Monitor_(GPU_0),Yes,1000
+Timer = Memory_Used_(GPU_0),Yes,3000
+
+# Attributes:
+
+[DPY:DVI-I-2]/RedBrightness=0.000000
+[DPY:DVI-I-2]/GreenBrightness=0.000000
+[DPY:DVI-I-2]/BlueBrightness=0.000000
+[DPY:DVI-I-2]/RedContrast=0.000000
+[DPY:DVI-I-2]/GreenContrast=0.000000
+[DPY:DVI-I-2]/BlueContrast=0.000000
+[DPY:DVI-I-2]/RedGamma=1.000000
+[DPY:DVI-I-2]/GreenGamma=1.000000
+[DPY:DVI-I-2]/BlueGamma=1.000000
+[DPY:DVI-I-3]/RedBrightness=0.000000
+[DPY:DVI-I-3]/GreenBrightness=0.000000
+[DPY:DVI-I-3]/BlueBrightness=0.000000
+[DPY:DVI-I-3]/RedContrast=0.000000
+[DPY:DVI-I-3]/GreenContrast=0.000000
+[DPY:DVI-I-3]/BlueContrast=0.000000
+[DPY:DVI-I-3]/RedGamma=1.000000
+[DPY:DVI-I-3]/GreenGamma=1.000000
+[DPY:DVI-I-3]/BlueGamma=1.000000
