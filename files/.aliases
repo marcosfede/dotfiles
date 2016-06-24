@@ -1,0 +1,6 @@
+alias poke='bash ~/dotfiles/files/poke.txt'
+alias lightsoff='pmset displaysleepnow'
+alias preschedules='python2 Projects/smarthinking-parser/preschtocal.py'
+alias python='python3'
+alias vi='nvim'
+alias vim='nvim'

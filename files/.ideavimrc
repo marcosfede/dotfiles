@@ -1,0 +1,23 @@
+set clipboard=unnamed
+set rnu
+set number
+let mapleader = ','
+let g:mapleader = ','
+" new lines with enter and shift enter
+nmap <C-o> O<Esc>j
+nmap <CR> o<Esc>k
+set ignorecase " case insensitive searching
+set smartcase " case-sensitive if expresson contains a capital letter
+set hlsearch
+set incsearch " set incremental search, like modern browsers
+set nolazyredraw " don't redraw while executing macros
+nmap <leader>, :w<cr>
+" moving up and down work as you would expect
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+nnoremap <silent> ^ g^
+nnoremap <silent> $ g$
+" scroll the viewport faster
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+set surround
