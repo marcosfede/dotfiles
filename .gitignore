@@ -1,0 +1,9 @@
+.atom
+storage
+.DS_Store
+blob-store
+compile-cache
+dev
+storage
+.node-gyp
+.npm
