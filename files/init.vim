@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
@@ -15,7 +16,12 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'ervandew/supertab'
 call plug#end()
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+  set termguicolors
+endif
 set background=dark    " Setting dark mode
 let g:airline_powerline_fonts = 1
 let g:gruvbox_italic=1
