@@ -1,3 +1,4 @@
+alias l='ls -lash'
 alias poke='bash ~/dotfiles/files/poke.txt'
 alias lightsoff='pmset displaysleepnow'
 alias preschedules='python2 ~/Projects/postpresch/preschtocal.py'
