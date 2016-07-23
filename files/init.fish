@@ -12,3 +12,11 @@ set fish_color_selection --background=665c54
 set fish_greeting ""
 . ~/.aliases
 . ~/.envvariables
+
+function sudo
+    if test "$argv" = !!
+        eval command sudo $history[1]
+    else
+        command sudo $argv
+    end
+end
