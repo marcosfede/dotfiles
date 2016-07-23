@@ -1,0 +1,8 @@
+def gitstatusf ():
+	from xonsh.environ import git_dirty_working_directory
+	if git_dirty_working_directory(include_untracked=True):
+		return '{#cc241d}'
+	return '{#b8bb26}'
+
+$FORMATTER_DICT['gitstatusf']=gitstatusf
+$PROMPT='{env_name:{} } {cwd_base}{gitstatusf}{curr_branch: {}} '
