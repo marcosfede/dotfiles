@@ -81,3 +81,4 @@ nnoremap <C-y> 3<C-y>
 let g:NERDTreeQuitOnOpen=0
 " show hidden files in NERDTree
 let NERDTreeShowHidden=1
+set conceallevel=0
