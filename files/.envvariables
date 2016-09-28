@@ -1,3 +1,11 @@
+switch (uname)
+    case Linux
+        echo Hi Tux!
+    case Darwin
+		set PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
+    case '*'
+		echo Hi, stranger!
+end
+
 export EDITOR=nvim
 export GIT_EDITOR=nvim
-set PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
