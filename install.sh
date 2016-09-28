@@ -53,8 +53,7 @@ then
 	echo '-------------------------------------------------------'
 	echo "Updating system..."
 	echo ""
-	sudo apt-get -y update
-	sudo apt-get -y dist-upgrade
+	. ./scripts/update.sh
 fi
 
 # Install bash+zsh+env Action
@@ -80,7 +79,7 @@ then
 	echo '-------------------------------------------------------'
 	echo "Speeding-up Memory..."
 	echo ""
-	sudo apt-get -y install zram-config
+	. ./scripts/zram.sh
 fi
 
 # Install Ubuntu Restricted Extras Action
@@ -89,7 +88,7 @@ then
 	echo '-------------------------------------------------------'
 	echo "Installing Ubuntu Restricted Extras..."
 	echo ""
-	sudo apt-get -y install ubuntu-restricted-extras
+	. ./scripts/ubunturestricted.sh
 fi
 
 # Install Extra Multimedia Codecs Action
@@ -98,7 +97,7 @@ then
 	echo '-------------------------------------------------------'
 	echo "Installing Extra Multimedia Codecs..."
 	echo ""
-	sudo apt-get -y install libavcodec-extra-53
+	. ./scripts/extracodecs.sh
 fi
 
 # Install Support for Archive Formats Action
@@ -107,7 +106,7 @@ then
 	echo '-------------------------------------------------------'
 	echo "Installing Support for Archive Formats"
 	echo ""
-	sudo apt-get -y install zip unzip p7zip p7zip-rar rar unrar
+	. ./scripts/archiveformats.sh
 fi
 
 # Install GDebi Action
@@ -116,7 +115,7 @@ then
 	echo '-------------------------------------------------------'
 	echo "Installing GDebi..."
 	echo ""
-	sudo apt-get -y install gdebi
+	. ./scripts/gdebi.sh
 fi
 
 # Install Google Chrome Action
@@ -125,15 +124,7 @@ then
 	echo '-------------------------------------------------------'
 	echo "Installing Google Chrome..."
 	echo ""
-	if [[ $(uname -m) == "i686" ]]
-	then
-		wget -O /tmp/google-chrome-stable_current_i386.deb https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
-		sudo dpkg -i /tmp/google-chrome-stable_current_i386.deb
-	elif [[ $(uname -m) == "x86_64" ]]
-	then
-		wget -O /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-		sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
-	fi
+	. ./scripts/chrome.sh
 fi
 
 # Install Firefox Action
@@ -142,7 +133,7 @@ then
 	echo '-------------------------------------------------------'
 	echo "Installing Firefox..."
 	echo ""
-	sudo apt-get -y install firefox
+	. ./scripts/firefox.sh
 fi
 
 # Install VLC Action
@@ -151,7 +142,7 @@ then
 	echo '-------------------------------------------------------'
 	echo "Installing VLC..."
 	echo ""
-	sudo apt-get -y install vlc
+	. ./scripts/vlc.sh
 fi
 
 # Install Qbittorrent Action
@@ -160,7 +151,7 @@ then
 	echo '-------------------------------------------------------'
 	echo "Installing Qbittorrent..."
 	echo ""
-	sudo apt-get -y install qbittorrent
+	. ./scripts/qbittorrent.sh
 fi
 
 # Install Atom Action
@@ -169,9 +160,7 @@ then
 	echo '-------------------------------------------------------'
 	echo "Installing Atom..."
 	echo ""
-	sudo add-apt-repository -y ppa:webupd8team/atom
-	sudo apt-get -y update
-	sudo apt-get -y install atom
+	. ./scripts/atom.sh
 fi
 
 
@@ -181,7 +170,7 @@ then
 	echo '-------------------------------------------------------'
 	echo "Installing LibreOffice..."
 	echo ""
-	sudo apt-get -y install libreoffice
+	. ./scripts/libreoffice.sh
 fi
 
 # Install Burg Action
@@ -196,8 +185,7 @@ fi
 if [[ $GUI == *"Configure git Fede"* ]]
 then
 	echo '-------------------------------------------------------'
-	git config --global user.name "Federico Marcos"
-	git config --global user.email marcosfede@gmail.com
+	. ./scripts/fede-git-config.sh
 fi
 
 # Install Fede's Themes Action
@@ -213,8 +201,7 @@ if [[ $GUI == *"Install gedit gruvbox"* ]]
 then
 	echo '-------------------------------------------------------'
 	echo "installing gedit theme"
-	wget https://www.googledrive.com/host/0B0uyhbFQ15ncVFJpcWMzQWN3ZTA/fedegruvboxgedit.xml -O fedegruvboxgedit.xml
-	sudo mv fedegruvboxgedit.xml /usr/share/gtksourceview-3.0/styles/
+	. ./scripts/geditgruvbox.sh
 fi
 
 # Set i7 keybinds Action
@@ -246,16 +233,14 @@ if [[ $GUI == *"Install Java"* ]]
 then
 	echo '-------------------------------------------------------'
 	echo installing java
-	sudo add-apt-repository -y ppa:webupd8team/java
-	sudo apt-get update
-	sudo apt-get install -y oracle-java8-installer
+	. ./scripts/java.sh
 fi
 
 # Install pavucontrol Action
 if [[ $GUI == *"Install pavucontrol"* ]]
 then
 	echo '-------------------------------------------------------'
-	sudo apt-get install -y pavucontrol
+	. ./scripts/pavucontrol.sh
 fi
 
 
@@ -282,12 +267,7 @@ if [[ $GUI == *"Add open-in-terminal"* ]]
 then
 	echo '-------------------------------------------------------'
 	echo "adding open in terminal"
-	echo "[Desktop Entry]
-	Name=Open script in terminal
-	Exec=gnome-terminal -e "%U"
-	Terminal=false
-	Type=Application
-	MimeType=text/plain;" > /usr/share/applications/openscript.desktop
+	. ./scripts/open-in-terminal.sh
 fi
 
 # Installs Spotify+addkiller Action
@@ -319,11 +299,7 @@ fi
 if [[ $GUI == *"Install Unity-tweak + compiz"* ]]
 then
 	echo '-------------------------------------------------------'
-	sudo apt-get install -y unity-tweak-tool compizconfig-settings-manager
-	echo icons on menus
-	gsettings set org.gnome.desktop.interface menus-have-icons true && gsettings set org.gnome.desktop.interface buttons-have-icons true
-	echo upgrading system
-	sudo apt-get -y dist-upgrade
+	. ./scripts/unity-tweak-compiz.sh
 fi
 
 # Install zsh+theme Action
@@ -339,7 +315,7 @@ if [[ $GUI == *"Install Synapse"* ]]
 then
 	echo '-------------------------------------------------------'
 	echo "installing Synapse"
-	sudo apt-get install -y synapse
+	. ./scripts/synapse.sh
 fi
 
 # Clean-Up Junk Action
@@ -348,10 +324,7 @@ then
 	echo '-------------------------------------------------------'
 	echo "Cleaning-up junk..."
 	echo ""
-	sudo apt-get -f install
-	sudo apt-get -y autoremove
-	sudo apt-get -y autoclean
-	sudo apt-get -y clean
+	. ./scripts/cleanup.sh
 fi
 
 # Notification

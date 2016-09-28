@@ -84,6 +84,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.envvariables
 source ~/.vim/plugged/gruvbox/gruvbox_256palette.sh
+source ~/.aliases
 
 if [ -f /etc/profile.d/vte.sh ]; then
 . /etc/profile.d/vte.sh
@@ -91,6 +92,5 @@ fi
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

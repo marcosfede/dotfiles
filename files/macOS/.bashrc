@@ -1,2 +1,0 @@
-. ~/.envvariables
-. ~/.aliases
