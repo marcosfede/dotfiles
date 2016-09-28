@@ -1,10 +1,10 @@
 switch (uname)
     case Linux
-        echo Hi Tux!
+        export PATH="$HOME/.local/bin/:$HOME/bin:$PATH"
     case Darwin
-		set PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
+    		set PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
     case '*'
-		echo Hi, stranger!
+    		echo Hi, stranger!
 end
 
 export EDITOR=nvim
