@@ -1,16 +1,22 @@
-switch (uname)
-    case Linux
-        alias agi='sudo apt-get install'
-        alias agr='sudo apt-get remove'
-        alias agu='sudo apt-get update'
-        alias agup='sudo apt-get upgrade'
-        alias acs='apt-cache search'
-    case Darwin
-        alias cdfede='cd /Volumes/Datos/Fede'
-        alias lightsoff='pmset displaysleepnow'
-    case '*'
-		echo Hi, stranger!
-end
+platform='unknown'
+unamestr=`uname`
+
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='mac'
+fi
+
+if [[ $platform == 'linux' ]]; then
+	alias agi='sudo apt-get install'
+	alias agr='sudo apt-get remove'
+	alias agu='sudo apt-get update'
+	alias agup='sudo apt-get upgrade'
+	alias acs='apt-cache search'
+elif [[ $platform == 'mac' ]]; then
+	alias cdfede='cd /Volumes/Datos/Fede'
+	alias lightsoff='pmset displaysleepnow'
+fi
 
 alias rm='trash'
 alias python='python3'
