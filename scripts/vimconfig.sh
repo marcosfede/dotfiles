@@ -1,8 +1,19 @@
 #!/bin/bash
-echo "setting up VIM"
-sudo add-apt-repository -y ppa:neovim-ppa/unstable
-sudo apt-get update
-sudo apt-get install vim neovim curl -y
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='mac'
+fi
+if [[ $platform == 'linux' ]]; then
+	echo "setting up VIM"
+	sudo add-apt-repository -y ppa:neovim-ppa/unstable
+	sudo apt-get update
+	sudo apt-get install vim neovim curl -y
+elif [[ $platform == 'mac' ]]; then
+	brew install neovim
+fi
 mkdir -p ~/.config/nvim/
 ln -s ~/dotfiles/files/init.vim ~/.config/nvim/init.vim
 ln -s ~/dotfiles/files/init.vim ~/.vimrc
