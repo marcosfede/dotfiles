@@ -10,8 +10,8 @@ set fish_color_operator 097ed3 # operators like |
 set fish_color_search_match --background=665c54 # tab selection 
 set fish_color_selection --background=665c54
 set fish_greeting ""
-. ~/.aliases
-. ~/.envvariables
+bass . ~/.aliases
+bass . ~/.envvariables
 
 function sudo
     if test "$argv" = !!
