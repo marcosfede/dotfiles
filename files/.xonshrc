@@ -1,8 +1,37 @@
 def gitstatusf ():
-	from xonsh.environ import git_dirty_working_directory
+	from xonsh.prompt.vc_branch import git_dirty_working_directory
 	if git_dirty_working_directory(include_untracked=True):
-		return '{#cc241d}'
+		return '{#d79921}'
 	return '{#b8bb26}'
 
 $FORMATTER_DICT['gitstatusf']=gitstatusf
-$PROMPT='{env_name:{} } {cwd_base}{gitstatusf}{curr_branch: {}} '
+$PROMPT='{env_name:{} } {cwd_base}{gitstatusf}{curr_branch: {}}{NO_COLOR} '
+
+# aliases
+def system_specific_aliases ():
+	import platform
+	if platform.system() == 'Darwin':
+		aliases['cdfede']='cd /Volumes/Datos/Fede'
+		aliases['lightsoff']='pmset displaysleepnow'
+	elif platform.system == 'Linux':
+		aliases['agi']='sudo apt-get install'
+		aliases['agr']='sudo apt-get remove'
+		aliases['agu']='sudo apt-get update'
+		aliases['agup']='sudo apt-get upgrade'
+		aliases['acs']='apt-cache search'
+system_specific_aliases()
+aliases['rm']='trash'
+aliases['python']='python3'
+aliases['pip']='pip3'
+aliases['l']='ls -lash'
+aliases['poke']='bash ~/dotfiles/files/poke.txt'
+aliases['preschedules']='node ~/Projects/preschtocalnode/nightmare.js'
+aliases['downloads']='cd ~/Downloads'
+aliases['..']='cd ..'
+aliases['...']='cd ../..'
+aliases['....']='cd ../../..'
+aliases['e']='exit'
+aliases['s']='sudo'
+aliases['shutdown']='sudo shutdown –h now'    #requires root password, disable it by sudo chmod u+s /sbin/shutdown
+aliases['restart']='sudo shutdown –r now'      #requires root password, disable it by sudo chmod u+s /sbin/shutdown
+aliases['evim']='nvim ~/.config/nvim/init.vim'
