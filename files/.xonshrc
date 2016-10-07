@@ -1,3 +1,7 @@
+$PATH.insert(0,'/usr/local/bin')
+$PATH.insert(1,'~/.fzf/bin')
+
+$XONSH_COLOR_STYLE = 'monokai'
 def gitstatusf ():
 	from xonsh.prompt.vc_branch import git_dirty_working_directory
 	if git_dirty_working_directory(include_untracked=True):
