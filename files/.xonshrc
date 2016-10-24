@@ -1,6 +1,7 @@
 $PATH.insert(0,'/usr/local/bin')
 $PATH.insert(1,'~/.fzf/bin')
-
+$VISUAL='nvim'
+$EDITOR='nvim'
 $XONSH_COLOR_STYLE = 'monokai'
 def gitstatusf ():
 	from xonsh.prompt.vc_branch import git_dirty_working_directory
@@ -39,3 +40,15 @@ aliases['s']='sudo'
 aliases['shutdown']='sudo shutdown –h now'    #requires root password, disable it by sudo chmod u+s /sbin/shutdown
 aliases['restart']='sudo shutdown –r now'      #requires root password, disable it by sudo chmod u+s /sbin/shutdown
 aliases['evim']='nvim ~/.config/nvim/init.vim'
+
+def _upgradeallpip(args, stdin, stdout, stderr):
+	import pip
+	import subprocess
+
+	for dist in pip.get_installed_distributions():
+		call_str = "/usr/local/bin/pip3 install --upgrade {0}".format(dist.project_name)
+		print
+		print("Upgrading {}".format(dist.project_name), file=stdout)
+		subprocess.call(call_str, shell=True)
+
+aliases['upgradeallpip']=_upgradeallpip

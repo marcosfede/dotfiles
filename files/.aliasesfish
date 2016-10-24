@@ -25,3 +25,4 @@ alias s='sudo'
 alias shutdown='sudo shutdown –h now'    #requires root password, disable it by sudo chmod u+s /sbin/shutdown
 alias restart='sudo shutdown –r now'      #requires root password, disable it by sudo chmod u+s /sbin/shutdown
 alias evim='nvim ~/.config/nvim/init.vim'
+alias upgradeallpip="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
