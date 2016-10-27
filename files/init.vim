@@ -10,8 +10,9 @@ Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'whatyouhide/vim-gotham'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'ternjs/tern_for_vim'
 Plug 'svermeulen/vim-easyclip'
-"Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 Plug 'Yggdroot/indentLine'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
@@ -82,4 +83,9 @@ nnoremap <C-y> 3<C-y>
 let g:NERDTreeQuitOnOpen=0
 " show hidden files in NERDTree
 let NERDTreeShowHidden=1
-set conceallevel=0
+" json hides string quotes
+let g:vim_json_syntax_conceal = 0
+" set python3 for YCM
+let g:ycm_python_binary_path = 'python3'
+" do not autostart YCM
+let g:loaded_youcompleteme = 1
