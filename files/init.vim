@@ -1,16 +1,21 @@
 call plug#begin('~/.vim/plugged')
+" themes
 Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'whatyouhide/vim-gotham'
+Plug 'chriskempson/base16-vim'
+Plug 'jackiehluo/vim-material'
+"functionality
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
-Plug 'morhetz/gruvbox'
-Plug 'frankier/neovim-colors-solarized-truecolor-only'
-Plug 'whatyouhide/vim-gotham'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'ternjs/tern_for_vim'
+Plug 'kien/ctrlp.vim'
 Plug 'svermeulen/vim-easyclip'
 Plug 'Valloric/YouCompleteMe'
 Plug 'Yggdroot/indentLine'
