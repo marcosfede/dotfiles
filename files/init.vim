@@ -32,7 +32,7 @@ endif
 set background=dark    " Setting dark mode
 let g:airline_powerline_fonts = 1
 let g:gruvbox_italic=1
-colorscheme gruvbox
+colorscheme solarized
 " airline options
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''

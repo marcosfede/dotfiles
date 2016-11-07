@@ -15,3 +15,4 @@ fi
 
 export EDITOR=nvim
 export GIT_EDITOR=nvim
+export PYTHONPATH="./.pip:$PYTHONPATH"
