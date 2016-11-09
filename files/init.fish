@@ -12,7 +12,6 @@ set fish_color_selection --background=665c54
 set fish_greeting ""
 . ~/.aliasesfish
 bass . ~/.envvariables
-
 function sudo
     if test "$argv" = !!
         eval command sudo $history[1]
