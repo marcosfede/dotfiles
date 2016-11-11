@@ -16,10 +16,10 @@ elif [[ $platform == 'mac' ]]; then
 	alias lightsoff='pmset displaysleepnow'
 fi
 alias rm='trash'
+alias python='python3'
+alias pip='pip3'
 alias l='ls -lash'
 alias poke='bash ~/dotfiles/files/poke.txt'
-alias python=python3
-alias pip=pip3
 alias preschedules='node ~/Projects/preschtocalnode/nightmare.js'
 alias downloads='cd ~/Downloads'
 alias ..='cd ..'

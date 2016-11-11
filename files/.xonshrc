@@ -29,6 +29,8 @@ def system_specific_aliases ():
 		aliases['acs']='apt-cache search'
 system_specific_aliases()
 aliases['rm']='trash'
+aliases['python']='python3'
+aliases['pip']='pip3'
 aliases['l']='ls -lash'
 aliases['poke']='bash ~/dotfiles/files/poke.txt'
 aliases['preschedules']='node ~/Projects/preschtocalnode/nightmare.js'

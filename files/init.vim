@@ -93,4 +93,4 @@ let g:vim_json_syntax_conceal = 0
 " set python3 for YCM
 let g:ycm_python_binary_path = 'python3'
 " do not autostart YCM
-let g:loaded_youcompleteme = 1
+let g:loaded_youcompleteme = 0
