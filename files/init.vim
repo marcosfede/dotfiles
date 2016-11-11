@@ -32,7 +32,7 @@ endif
 set background=dark    " Setting dark mode
 let g:airline_powerline_fonts = 1
 let g:gruvbox_italic=1
-colorscheme gruvbox
+colorscheme solarized
 " airline options
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
@@ -93,4 +93,4 @@ let g:vim_json_syntax_conceal = 0
 " set python3 for YCM
 let g:ycm_python_binary_path = 'python3'
 " do not autostart YCM
-"let g:loaded_youcompleteme = 0
+let g:loaded_youcompleteme = 0

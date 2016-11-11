@@ -1,5 +1,8 @@
+$PYTHONPATH='./.pip'
 $PATH.insert(0,'/usr/local/bin')
 $PATH.insert(1,'~/.fzf/bin')
+$PATH.insert(2,'/Applications/Postgres.app/Contents/Versions/latest/bin')
+$PATH.insert(3,'~/bin')
 $VISUAL='nvim'
 $EDITOR='nvim'
 $XONSH_COLOR_STYLE = 'monokai'
