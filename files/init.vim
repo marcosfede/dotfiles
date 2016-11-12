@@ -17,7 +17,7 @@ Plug 'tpope/vim-repeat'
 Plug 'ternjs/tern_for_vim'
 Plug 'kien/ctrlp.vim'
 Plug 'svermeulen/vim-easyclip'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'Yggdroot/indentLine'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
@@ -90,7 +90,3 @@ let g:NERDTreeQuitOnOpen=0
 let NERDTreeShowHidden=1
 " json hides string quotes
 let g:vim_json_syntax_conceal = 0
-" set python3 for YCM
-let g:ycm_python_binary_path = 'python3'
-" do not autostart YCM
-let g:loaded_youcompleteme = 0
