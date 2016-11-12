@@ -14,7 +14,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'ternjs/tern_for_vim'
+"Plug 'ternjs/tern_for_vim'
 Plug 'kien/ctrlp.vim'
 Plug 'svermeulen/vim-easyclip'
 "Plug 'Valloric/YouCompleteMe'
