@@ -48,11 +48,11 @@ set number
 "remap m to gm to be compatible with move text plugin
 nnoremap gm m
 " Unbind the cursor keys in insert, normal and visual modes.
-for prefix in ['i', 'n', 'v']
-  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
-    exe prefix . "noremap " . key . " <Nop>"
-  endfor
-endfor
+"for prefix in ['i', 'n', 'v']
+"  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+"    exe prefix . "noremap " . key . " <Nop>"
+"  endfor
+"endfor
 " set a map leader for more key combos
 let mapleader = ','
 let g:mapleader = ','
@@ -88,5 +88,3 @@ nnoremap <C-y> 3<C-y>
 let g:NERDTreeQuitOnOpen=0
 " show hidden files in NERDTree
 let NERDTreeShowHidden=1
-" json hides string quotes
-let g:vim_json_syntax_conceal = 0
