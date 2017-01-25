@@ -10,6 +10,7 @@ switch (uname)
 		alias lightsoff='pmset displaysleepnow'
 end
 
+alias py=python
 alias rm='trash'
 alias l='ls -lash'
 alias poke='bash ~/dotfiles/files/poke.txt'

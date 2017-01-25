@@ -4,23 +4,23 @@ Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'whatyouhide/vim-gotham'
-Plug 'chriskempson/base16-vim'
-Plug 'jackiehluo/vim-material'
+"Plug 'chriskempson/base16-vim'
+"Plug 'jackiehluo/vim-material'
 "functionality
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
+"Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
+"Plug 'tpope/vim-repeat'
 "Plug 'ternjs/tern_for_vim'
 Plug 'kien/ctrlp.vim'
-Plug 'svermeulen/vim-easyclip'
+"Plug 'svermeulen/vim-easyclip'
 "Plug 'Valloric/YouCompleteMe'
 Plug 'Yggdroot/indentLine'
 Plug 'Raimondi/delimitMate'
-Plug 'tpope/vim-commentary'
+"Plug 'tpope/vim-commentary'
 Plug 'ervandew/supertab'
 call plug#end()
 if (has("nvim"))
@@ -46,7 +46,7 @@ map <silent> <C-n> :NERDTreeToggle<CR>
 set rnu
 set number
 "remap m to gm to be compatible with move text plugin
-nnoremap gm m
+" nnoremap gm m
 " Unbind the cursor keys in insert, normal and visual modes.
 "for prefix in ['i', 'n', 'v']
 "  for key in ['<Up>', '<Down>', '<Left>', '<Right>']

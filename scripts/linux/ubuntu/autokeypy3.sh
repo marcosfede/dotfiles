@@ -5,7 +5,7 @@ sudo apt-get install -y python3-gi gir1.2-gtk-3.0 gir1.2-gtksource-3.0 gir1.2-gl
 sudo apt install python3 python3-pip -y
 pip3 install --user python3-xlib
 pip3 install --user autokey-py3
-wget https://www.googledrive.com/host/0B0uyhbFQ15ncVFJpcWMzQWN3ZTA/autokeys.tar.gz -O autokeys.tar.gz
+wget "https://drive.google.com/uc?export=download&id=0B0uyhbFQ15ncMlVLSGd3QzZYSjQ" -O autokeys.tar.gz
 tar xf autokeys.tar.gz
 nohup autokey-gtk &>/dev/null &
 sleep 1
