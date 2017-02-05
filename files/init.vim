@@ -1,9 +1,9 @@
 call plug#begin('~/.vim/plugged')
 " themes
-Plug 'joshdick/onedark.vim'
+"Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
-Plug 'whatyouhide/vim-gotham'
+"Plug 'whatyouhide/vim-gotham'
 "Plug 'chriskempson/base16-vim'
 "Plug 'jackiehluo/vim-material'
 "functionality
@@ -21,7 +21,6 @@ Plug 'kien/ctrlp.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'Raimondi/delimitMate'
 "Plug 'tpope/vim-commentary'
-Plug 'ervandew/supertab'
 call plug#end()
 if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -45,14 +44,6 @@ map <silent> <C-n> :NERDTreeToggle<CR>
 "enable relative line numbers
 set rnu
 set number
-"remap m to gm to be compatible with move text plugin
-" nnoremap gm m
-" Unbind the cursor keys in insert, normal and visual modes.
-"for prefix in ['i', 'n', 'v']
-"  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
-"    exe prefix . "noremap " . key . " <Nop>"
-"  endfor
-"endfor
 " set a map leader for more key combos
 let mapleader = ','
 let g:mapleader = ','
@@ -60,8 +51,6 @@ let g:mapleader = ','
 nmap <C-o> O<Esc>j
 nmap <CR> o<Esc>k
 " Tab control
-set noexpandtab " insert tabs rather than spaces for <Tab>
-set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
 set tabstop=4 " the visible width of tabs
 set softtabstop=4 " edit as if the tabs are 4 characters wide
 set shiftwidth=4 " number of spaces to use for indent and unindent

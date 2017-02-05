@@ -42,7 +42,7 @@ set fish_greeting ""
 
 # set -x PATH "$HOME/.pyenv/bin" $PATH
 
-. ~/.aliasesfish
+bass . ~/.aliases
 bass . ~/.envvariables
 
 status --is-interactive; and . (pyenv init -|psub)
