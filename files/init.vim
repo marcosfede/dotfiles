@@ -2,10 +2,8 @@ call plug#begin('~/.vim/plugged')
 " themes
 "Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
-Plug 'frankier/neovim-colors-solarized-truecolor-only'
-"Plug 'whatyouhide/vim-gotham'
+Plug 'lifepillar/vim-solarized8'
 "Plug 'chriskempson/base16-vim'
-"Plug 'jackiehluo/vim-material'
 "functionality
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
@@ -20,8 +18,9 @@ Plug 'kien/ctrlp.vim'
 "Plug 'Valloric/YouCompleteMe'
 Plug 'Yggdroot/indentLine'
 Plug 'Raimondi/delimitMate'
-"Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 call plug#end()
+
 if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
@@ -30,8 +29,8 @@ if (has("termguicolors"))
 endif
 set background=dark    " Setting dark mode
 let g:airline_powerline_fonts = 1
-let g:gruvbox_italic=1
-colorscheme solarized
+"let g:gruvbox_italic=1
+colorscheme solarized8_dark
 " airline options
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''

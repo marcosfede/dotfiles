@@ -6,17 +6,20 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='mac'
 fi
 if [[ $platform == 'linux' ]]; then
-	alias agi='sudo apt-get install'
-	alias agr='sudo apt-get remove'
-	alias agu='sudo apt-get update'
-	alias agup='sudo apt-get upgrade'
+	alias ai='sudo apt install'
+	alias ar='sudo apt remove'
+	alias apu='sudo apt purge'
+	alias au='sudo apt update'
+	alias aup='sudo apt upgrade'
 	alias acs='apt-cache search'
+	alias autoremove='sudo apt autoremove'
 elif [[ $platform == 'mac' ]]; then
 	alias cdfede='cd /Volumes/Datos/Fede'
 	alias lightsoff='pmset displaysleepnow'
 fi
 
-alias py=python
+alias cleandocker='docker rm -v (docker ps -a -q -f status=exited); docker rmi (docker images -f "dangling=true" -q)'
+alias py='python'
 alias rm='trash'
 alias l='ls -lash'
 alias poke='bash ~/dotfiles/files/poke.txt'
@@ -27,7 +30,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias e='exit'
 alias s='sudo'
-alias shutdown='sudo shutdown –h now'    #requires root password, disable it by sudo chmod u+s /sbin/shutdown
-alias restart='sudo shutdown –r now'      #requires root password, disable it by sudo chmod u+s /sbin/shutdown
+alias shutdown='sudo shutdown -h now'
 alias evim='nvim ~/.config/nvim/init.vim'
-alias upgradeallpip='pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U'
+alias upgradeallpip="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"

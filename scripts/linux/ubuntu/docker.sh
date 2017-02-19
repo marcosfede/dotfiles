@@ -14,5 +14,5 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.10.0/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 sudo curl -L https://github.com/docker/machine/releases/download/v0.9.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
   sudo chmod +x /tmp/docker-machine &&
-  sudo cp /tmp/docker-machine /usr/local/bin/docker-machinenewgrp
+  sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
 newgrp docker
