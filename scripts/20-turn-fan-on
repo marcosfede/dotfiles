@@ -1,6 +1,0 @@
-#!/bin/bash
-case "${1}" in
-    resume|thaw|post)
-        sudo ectool fanduty 100
-;;
-esac

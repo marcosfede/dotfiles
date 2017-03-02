@@ -3,4 +3,4 @@ git clone https://github.com/powerline/fonts.git
 cd fonts
 ./install.sh
 cd ..
-sudo rm -r fonts
+rm -r fonts
