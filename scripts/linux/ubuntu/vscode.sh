@@ -8,3 +8,4 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 sudo apt-get update
 # Install
 sudo apt-get install code # or code-insiders
+echo "my GIST config file ID is 79175a9676c45aed24671dd6e661cb35"
