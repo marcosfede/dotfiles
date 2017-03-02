@@ -6,13 +6,17 @@ sudo add-apt-repository \
        ubuntu-xenial \
        main"
 sudo apt-get update
-sudo apt-get -y install docker-engine
+sudo apt-get -y install docker-engine jq
 sudo groupadd docker
 sudo gpasswd -a ${USER} docker
 sudo service docker restart
-sudo curl -L "https://github.com/docker/compose/releases/download/1.10.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+platform=Linux-x86_64
+compose_url=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r ".assets[] | select(.name | test(\"${platform}\")) | .browser_download_url")
+echo $compose_url
+sudo curl -L $compose_url -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-sudo curl -L https://github.com/docker/machine/releases/download/v0.9.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
+machine_url=$(curl -s https://api.github.com/repos/docker/machine/releases/latest | jq -r ".assets[] | select(.name | test(\"${platform}\")) | .browser_download_url")
+sudo curl -L $machine_url >/tmp/docker-machine &&
   sudo chmod +x /tmp/docker-machine &&
   sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
 newgrp docker

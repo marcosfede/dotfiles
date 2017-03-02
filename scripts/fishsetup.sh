@@ -28,3 +28,4 @@ rm ~/.config/fish/config.fish
 ln -s ~/dotfiles/files/config.fish ~/.config/fish/config.fish
 # install bass to get bash compatibility
 fisher edc/bass
+fisher fzf

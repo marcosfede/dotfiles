@@ -12,9 +12,10 @@ if [[ $platform == 'linux' ]]; then
 	sudo apt-get update
 	sudo apt-get install vim neovim curl -y
 elif [[ $platform == 'mac' ]]; then
-	brew install neovim
+	brew install neovim/neovim/neovim
 fi
 mkdir -p ~/.config/nvim/
+rm ~/.config/nvim/init.vim ~/.vimrc
 ln -s ~/dotfiles/files/init.vim ~/.config/nvim/init.vim
 ln -s ~/dotfiles/files/init.vim ~/.vimrc
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
