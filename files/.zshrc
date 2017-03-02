@@ -43,7 +43,6 @@ else
 fi
 
 source ~/.envvariables
-# source ~/.vim/plugged/gruvbox/gruvbox_256palette.sh
 source ~/.aliases
 # source ~/.bash_profile
 
