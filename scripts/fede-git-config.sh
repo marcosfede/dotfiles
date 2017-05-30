@@ -1,3 +1,3 @@
 #!/bin/bash
 git config --global user.name "Federico Marcos"
-git config --global user.email marcosfede@gmail.com
+git config --global user.email federico.marcos@celerative.com

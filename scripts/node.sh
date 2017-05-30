@@ -7,11 +7,9 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='mac'
 fi
 if [[ $platform == 'linux' ]]; then
-	sudo apt-get install -y zsh git
+    curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    sudo apt-get install -y build-essential
 elif [[ $platform == 'mac' ]]; then
-	brew install zsh wget
+	brew install node
 fi
-wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O zsh.sh
-sed -i 's/env zsh/#env zsh/g' zsh.sh
-bash "zsh.sh"
-sudo rm zsh.sh
