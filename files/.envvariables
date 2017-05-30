@@ -14,7 +14,6 @@ elif [[ $platform == 'mac' ]]; then
 	export PATH="$HOME/Projects/go/bin/:$PATH"
 fi
 
-export NVM_DIR="$HOME/.nvm"
 export GOPATH=$HOME/Projects/go
 export EDITOR=nvim
 export GIT_EDITOR=nvim
