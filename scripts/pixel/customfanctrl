@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+import subprocess
+feed = subprocess.run("sensors | grep 'Core 0' | cut -c18-21", shell=True, stdout=subprocess.PIPE)
+out = feed.stdout.decode('utf-8')
+temp = int(out[:2])
+
+def calc_fan_rpm(temp):
+    min_temp = 50
+    max_temp = 70
+    step = 15
+    min_rpm = 50
+    max_rpm = 100
+    if temp < min_temp:
+        return 0
+    elif temp > max_temp:
+        return 100
+    else:
+        new_temp = min_rpm + ((max_rpm - min_rpm)//(max_temp-min_temp))*(temp - min_temp)
+        return (new_temp//step)*step
+
+print(calc_fan_rpm(temp))
