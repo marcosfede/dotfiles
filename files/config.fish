@@ -1,4 +1,5 @@
 # colors
+#
 set gray fsbd2f 
 set red EF5350
 set green b8bb26 
@@ -42,11 +43,11 @@ set fish_greeting ""
 
 # set -x PATH "$HOME/.pyenv/bin" $PATH
 
-bass . ~/.aliases
-bass . ~/.envvariables
+bass source ~/.aliases
+bass source ~/.envvariables
 
-status --is-interactive; and . (pyenv init -|psub)
-status --is-interactive; and . (pyenv virtualenv-init -|psub)
+# status --is-interactive; and . (pyenv init -|psub)
+# status --is-interactive; and . (pyenv virtualenv-init -|psub)
 
 function sudo
     if test "$argv" = !!
