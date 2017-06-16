@@ -7,16 +7,15 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='mac'
 fi
 
-export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$HOME/.yarn/bin:$PATH"
 if [[ $platform == 'linux' ]]; then
 	export PATH="$PATH"
 elif [[ $platform == 'mac' ]]; then
-	export PATH="$HOME/Projects/go/bin/:$PATH"
+	export PATH="/usr/local/opt/go/libexec/bin:$HOME/Projects/go/bin:$PATH"
 fi
 
-export NVM_DIR="$HOME/.nvm"
 export GOPATH=$HOME/Projects/go
 export EDITOR=nvim
 export GIT_EDITOR=nvim
-export PYTHONPATH="./.pip:$PYTHONPATH"
 export VIRTUAL_ENV_DISABLE_PROMPT=true
+source ~/.localenvvariables
