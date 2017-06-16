@@ -1,0 +1,58 @@
+# Sets Prezto options.
+
+# Set case-sensitivity for completion, history lookup, etc.
+zstyle ':prezto:*:*' case-sensitive 'no'
+#
+# Set the Zsh functions to load (man zshcontrib).
+zstyle ':prezto:load' zfunction 'zargs' 'zmv'
+#
+# Set the Prezto modules to load (browse modules).
+# The order matters.
+zstyle ':prezto:load' pmodule \
+  'environment' \
+  'archive' \
+  'editor' \
+  'history' \
+  'directory' \
+  'spectrum' \
+  'utility' \
+  'completion' \
+  'prompt' \
+  'python' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'autosuggestions' \
+  'git' \
+
+# syntax highlighing
+zstyle ':prezto:module:syntax-highlighting' color 'yes'
+
+# Set the key mapping style to 'emacs' or 'vi'.
+zstyle ':prezto:module:editor' keymap 'vi'
+
+# Auto convert .... to ../..
+zstyle ':prezto:module:editor' dot-expansion 'yes'
+
+# Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
+# zstyle ':prezto:module:git:status:ignore' submodules 'all'
+
+# Set the prompt theme to load.
+zstyle ':prezto:module:prompt' theme 'smiley'
+
+# Set syntax highlighters.
+# By default main, brackets, and cursor are enabled.
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'cursor' \
+  'root'
+
+# Auto set the tab and window titles.
+zstyle ':prezto:module:terminal' auto-title 'yes'
+
+# virtualenv
+zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
+
+# autosuggestion colors
+zstyle ':prezto:module:autosuggestions' color 'yes'

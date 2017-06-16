@@ -6,6 +6,10 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='mac'
 fi
 if [[ $platform == 'linux' ]]; then
+	alias pac='pacaur -S --noconfirm'
+	alias pacup='pacaur -Syu'
+	alias pacr='pacaur -R'
+	alias pacs='pacaur -s'
 	alias ai='sudo apt install'
 	alias ar='sudo apt remove'
 	alias apu='sudo apt purge'
