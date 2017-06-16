@@ -42,11 +42,11 @@ set fish_greeting ""
 
 # set -x PATH "$HOME/.pyenv/bin" $PATH
 
-bass . ~/.aliases
-bass . ~/.envvariables
+bass source ~/.aliases
+bass source ~/.envvariables
 
-status --is-interactive; and . (pyenv init -|psub)
-status --is-interactive; and . (pyenv virtualenv-init -|psub)
+status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
 function sudo
     if test "$argv" = !!
