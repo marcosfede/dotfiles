@@ -1,9 +1,14 @@
+# disable corrections
+unsetopt correct_all
+setopt nocorrectall
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 DEFAULT_USER=`whoami`
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 
 source ~/.aliases
 source ~/.envvariables
