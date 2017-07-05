@@ -6,7 +6,7 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='mac'
 fi
 if [[ $platform == 'linux' ]]; then
-	alias pac='pacaur -S --noconfirm'
+	alias pac='pacaur -S --noconfirm --noedit'
 	alias pacup='pacaur -Syu'
 	alias pacr='pacaur -R'
 	alias pacs='pacaur -s'
@@ -25,7 +25,6 @@ fi
 alias cleandocker='docker rm -v (docker ps -a -q -f status=exited); docker rmi (docker images -f "dangling=true" -q)'
 alias gs="git status"
 alias py='python'
-alias rm='trash'
 alias l='ls -lash'
 alias poke='bash ~/dotfiles/files/poke.txt'
 alias preschedules='node ~/Projects/preschtocalnode/nightmare.js'

@@ -1,0 +1,26 @@
+diff --git a/util/ectool.c b/util/ectool.c
+index e15bd8a0e..249d73c43 100644
+--- a/util/ectool.c
++++ b/util/ectool.c
+@@ -1008,7 +1008,7 @@ int cmd_fanduty(int argc, char *argv[])
+ 
+ #define LBMSG(state) #state
+ #include "lightbar_msg_list.h"
+-static const char const *lightbar_cmds[] = {
++static const char * const lightbar_cmds[] = {
+ 	LIGHTBAR_MSG_LIST
+ };
+ #undef LBMSG
+diff --git a/util/lbplay.c b/util/lbplay.c
+index 9121623f9..91414285c 100644
+--- a/util/lbplay.c
++++ b/util/lbplay.c
+@@ -43,7 +43,7 @@ static const struct {
+ };
+ 
+ 
+-static void lb_cmd_noargs(enum lightbar_command cmd)
++void lb_cmd_noargs(enum lightbar_command cmd)
+ {
+ 	struct ec_params_lightbar_cmd param;
+ 	param.in.cmd = cmd;
