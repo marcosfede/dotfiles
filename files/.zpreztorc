@@ -18,7 +18,6 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'prompt' \
-  'python' \
   'syntax-highlighting' \
   'history-substring-search' \
   'autosuggestions' \
