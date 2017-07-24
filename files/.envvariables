@@ -7,7 +7,7 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='mac'
 fi
 
-export PATH="$HOME/bin:$HOME/.pyenv/bin:$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.yarn/bin:$PATH"
 if [[ $platform == 'linux' ]]; then
 	export PATH="$PATH"
 elif [[ $platform == 'mac' ]]; then

@@ -1,19 +1,9 @@
 $PYTHONPATH='./.pip'
 $PATH.insert(0,'/usr/local/bin')
 $PATH.insert(1,'~/.fzf/bin')
-$PATH.insert(2,'/Applications/Postgres.app/Contents/Versions/latest/bin')
 $PATH.insert(3,'~/bin')
 $VISUAL='nvim'
 $EDITOR='nvim'
-$XONSH_COLOR_STYLE = 'monokai'
-def gitstatusf ():
-	from xonsh.prompt.vc_branch import git_dirty_working_directory
-	if git_dirty_working_directory(include_untracked=True):
-		return '{#d79921}'
-	return '{#b8bb26}'
-
-$FORMATTER_DICT['gitstatusf']=gitstatusf
-$PROMPT='{env_name:{} } {cwd_base}{gitstatusf}{curr_branch: {}}{NO_COLOR} '
 
 # aliases
 def system_specific_aliases ():
