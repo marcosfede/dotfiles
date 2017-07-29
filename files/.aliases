@@ -7,7 +7,7 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 if [[ $platform == 'linux' ]]; then
 	alias pac='pacaur -S --noconfirm --noedit'
-	alias pacup='pacaur -Syu'
+	alias pacup='pacaur -Syu --noconfirm --noedit'
 	alias pacr='pacaur -R'
 	alias pacs='pacaur -s'
 	alias ai='sudo apt install'
