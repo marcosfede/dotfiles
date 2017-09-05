@@ -24,7 +24,9 @@ fi
 
 alias cleandocker='docker rm -v (docker ps -a -q -f status=exited); docker rmi (docker images -f "dangling=true" -q)'
 alias gs="git status"
-alias py='python'
+alias py='python3'
+alias python='python3'
+alias pip='pip3'
 alias l='ls -lash'
 alias poke='bash ~/dotfiles/files/poke.txt'
 alias preschedules='node ~/Projects/preschtocalnode/nightmare.js'
