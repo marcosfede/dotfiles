@@ -38,7 +38,7 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='base16'
 " use system clipboard by default
-set clipboard=unnamed
+set clipboard=unnamedplus
 " key bindings
 map <silent> <C-n> :NERDTreeToggle<CR>
 "enable relative line numbers
