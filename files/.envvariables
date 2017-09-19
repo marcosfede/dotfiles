@@ -8,7 +8,7 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 export PATH="$HOME/bin:$HOME/.yarn/bin:$PATH"
-#export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 
 if [[ $platform == 'linux' ]]; then
 	export PATH="/opt/cuda/bin:$PATH"
