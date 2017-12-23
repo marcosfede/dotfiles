@@ -8,12 +8,16 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 export PATH="$HOME/bin:$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
+
 if [[ $platform == 'linux' ]]; then
-	export PATH="$PATH:$HOME/.gem/ruby"
+	export PATH="/opt/cuda/bin:$PATH:$HOME/.gem/ruby"
 elif [[ $platform == 'mac' ]]; then
 	export PATH="/usr/local/opt/go/libexec/bin:$HOME/Projects/go/bin:$PATH"
 fi
 
+export LD_LIBRARY_PATH="/opt/cuda/lib64:/opt/cuda/extras/CUPIT/lib64"
+export CUDA_HOME="/opt/cuda"
 export GOPATH=$HOME/Projects/go
 export EDITOR=nvim
 export GIT_EDITOR=nvim
