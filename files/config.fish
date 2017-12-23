@@ -46,8 +46,8 @@ set fish_greeting ""
 bass source ~/.aliases
 bass source ~/.envvariables
 
-status --is-interactive; and source (pyenv init -|psub)
-status --is-interactive; and source (pyenv virtualenv-init -|psub)
+# status --is-interactive; and source (pyenv init -|psub)
+# status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
 function sudo
     if test "$argv" = !!
