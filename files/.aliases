@@ -21,7 +21,7 @@ elif [[ $platform == 'mac' ]]; then
 	alias cdfede='cd /Volumes/Datos/Fede'
 	alias lightsoff='pmset displaysleepnow'
 fi
-
+alias fixmonitor='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0'
 alias cleandocker='docker rm -v (docker ps -a -q -f status=exited); docker rmi (docker images -f "dangling=true" -q)'
 alias gs="git status"
 alias py='python3'
