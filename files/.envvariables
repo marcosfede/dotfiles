@@ -11,7 +11,7 @@ export PATH="$HOME/bin:$HOME/.yarn/bin:$PATH"
 # export PATH="$HOME/.pyenv/bin:$PATH"
 
 if [[ $platform == 'linux' ]]; then
-	export PATH="/opt/cuda/bin:$PATH"
+	export PATH="/opt/cuda/bin:$PATH:$HOME/.gem/ruby"
 elif [[ $platform == 'mac' ]]; then
 	export PATH="/usr/local/opt/go/libexec/bin:$HOME/Projects/go/bin:$PATH"
 fi

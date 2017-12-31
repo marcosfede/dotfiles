@@ -19,7 +19,7 @@ source ~/.envvariables
 # eval "$(pyenv virtualenv-init -)"
 
 # Set python-info parameters.
-# zstyle ':prezto:module:python:info:virtualenv' format '%F{yellow}[%v]%f '
+zstyle ':prezto:module:python:info:virtualenv' format '%F{yellow}[%v]%f '
 #
 # Set git-info parameters.
 zstyle ':prezto:module:git:info:branch' format '%F{blue} %b%f'
