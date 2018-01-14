@@ -8,11 +8,9 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 if [[ $platform == 'linux' ]]; then
 	echo "setting up VIM"
-	sudo add-apt-repository -y ppa:neovim-ppa/unstable
-	sudo apt-get update
-	sudo apt-get install vim neovim curl -y
+	sudo pacman -S neovim
 elif [[ $platform == 'mac' ]]; then
-	brew install neovim/neovim/neovim
+	brew install neovim
 fi
 mkdir -p ~/.config/nvim/
 rm ~/.config/nvim/init.vim ~/.vimrc
