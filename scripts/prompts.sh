@@ -18,6 +18,7 @@ fi
 echo "setting up aliases"
 rm ~/.aliases
 ln -s ~/dotfiles/files/.aliases ~/.aliases
+touch ~/.hushlogin
 
 # zsh stuff
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
