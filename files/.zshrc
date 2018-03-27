@@ -37,3 +37,5 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source "/Users/fede/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
