@@ -1,9 +1,0 @@
-automount datos
-mathematica
-java exception
-annoying unity alt shorcuts
-firefox flash?
-pidgin smarthinking
-aceptar warnings java y flash en smarthinking
-grub customizer set
-sudo visudo

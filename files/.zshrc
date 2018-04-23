@@ -1,35 +1,41 @@
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/fede/.oh-my-zsh
 
-# hide user
-DEFAULT_USER=`whoami`
-# suggestions color
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+ZSH_THEME="spaceship"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="false"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(
+  git
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+export EDITOR='nvim'
 
 source ~/.aliases
 source ~/.envvariables
 
-# fzf history search
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source "/Users/fede/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# pyenv
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-
-# Set python-info parameters.
-zstyle ':prezto:module:python:info:virtualenv' format '%F{yellow}[%v]%f '
-#
-# Set git-info parameters.
-zstyle ':prezto:module:git:info:branch' format '%F{blue} %b%f'
-zstyle ':prezto:module:git:info:dirty' format '%%B%F{red} •%f%%b'
-zstyle ':prezto:module:git:info:keys' format 'prompt' '%b%D'
-
-# PROMPT=$'\n''$python_info[virtualenv]$ruby_info[version]${git_info:+${(e)git_info[prompt]}} %B%c%b %(?:%F{green}λ%f:%F{red}λ%f) '
-PROMPT=$'$python_info[virtualenv]$ruby_info[version]${git_info:+${(e)git_info[prompt]}} %B%c%b %(?:%F{green}λ%f:%F{red}λ%f) '
-
-# disable corrections
-unsetopt correct
-unsetopt correct_all
-setopt nocorrectall

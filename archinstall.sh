@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# pacaur -S git curl wget zsh fish node tree vim neovim yarn atom visual-studio-code docker docker-machine docker-compose google-chrome synapse albert firefox paper-icon-theme-git qbittorrent spotify tilix vlc --noedit --noconfirm
+pacaur -S git curl wget zsh fish node tree vim neovim yarn atom visual-studio-code docker docker-machine docker-compose google-chrome synapse albert firefox paper-icon-theme-git qbittorrent spotify tilix vlc --noedit --noconfirm
 # git
 git config --global user.name "Federico Marcos"
 git config --global user.email federico.marcos@celerative.com
