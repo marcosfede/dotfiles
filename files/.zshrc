@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/fede/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
+export ZSH_CUSTOM=~/.oh-my-zsh/custom
 
 ZSH_THEME="spaceship"
 
@@ -21,7 +22,9 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
-  git
+  git,
+  zsh-autosuggestions,
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -33,9 +36,9 @@ export EDITOR='nvim'
 source ~/.aliases
 source ~/.envvariables
 
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-source "/Users/fede/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="/home/fede/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+

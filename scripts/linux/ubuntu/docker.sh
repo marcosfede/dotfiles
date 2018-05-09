@@ -6,7 +6,7 @@ sudo add-apt-repository \
        ubuntu-xenial \
        main"
 sudo apt-get update
-sudo apt-get -y install docker-engine jq
+sudo apt-get -y install docker-ce jq
 sudo groupadd docker
 sudo gpasswd -a ${USER} docker
 sudo service docker restart
