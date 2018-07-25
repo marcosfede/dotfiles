@@ -10,6 +10,7 @@ fi
 if [[ $platform == 'linux' ]]; then
 	# install fish
 	sudo pacman -S fish zsh
+	sudo apt install zsh fish -y
 elif [[ $platform == 'mac' ]]; then
 	# install fish
 	brew install fish zsh
