@@ -1,12 +1,16 @@
 #!/bin/bash
-sudo apt-get install apt-transport-https ca-certificates
-curl -fsSL https://yum.dockerproject.org/gpg | sudo apt-key add -
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository \
-       "deb https://apt.dockerproject.org/repo/ \
-       ubuntu-xenial \
-       main"
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
 sudo apt-get update
-sudo apt-get -y install docker-engine jq
+sudo apt-get -y install docker-ce jq
 sudo groupadd docker
 sudo gpasswd -a ${USER} docker
 sudo service docker restart
