@@ -51,3 +51,4 @@ fish -c "fisher edc/bass fzf"
 mkdir -p ~/bin
 mkdir -p ~/.yarn/bin
 sudo mkdir -p /opt/cuda/bin
+chsh -s $(which fish)

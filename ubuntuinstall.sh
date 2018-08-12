@@ -2,7 +2,7 @@
 cd scripts
 bash fede-git-config.sh
 bash vimconfig.sh
-bash sshkeys.ssh
+bash sshkeys.sh
 bash prompts.sh
 cd linux/ubuntu
 bash archiveformats.sh
