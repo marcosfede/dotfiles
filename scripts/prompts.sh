@@ -22,12 +22,12 @@ ln -s ~/dotfiles/files/.aliases ~/.aliases
 touch ~/.hushlogin
 
 # zsh stuff
-ZSH_CUSTOM="~/.oh-my-zsh/custom"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# ZSH_CUSTOM="~/.oh-my-zsh/custom"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+# ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 rm ~/.zshrc ~/.envvariables
 ln -s ~/dotfiles/files/.zshrc ~/.zshrc
 
@@ -48,3 +48,6 @@ curl -L http://get.oh-my.fish | fish
 fish -c "omf install nai"
 # install bass to get bash compatibility
 fish -c "fisher edc/bass fzf"
+mkdir -p ~/bin
+mkdir -p ~/.yarn/bin
+sudo mkdir -p /opt/cuda/bin
