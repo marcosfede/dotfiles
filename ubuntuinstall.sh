@@ -14,3 +14,4 @@ bash powerlinefonts.sh
 bash swappiness.sh
 bash vscode.sh
 bash docker.sh
+bash exfat.sh
