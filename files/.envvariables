@@ -8,7 +8,7 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 export PATH="$HOME/bin:$HOME/.yarn/bin:$PATH"
-export PATH="$HOME/Projects/go/bin:$PATH"
+#export PATH="$HOME/Projects/go/bin:$PATH"
 # export PATH="$HOME/.pyenv/bin:$PATH"
 
 export LD_LIBRARY_PATH="/opt/cuda/lib64:/opt/cuda/extras/CUPIT/lib64"
