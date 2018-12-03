@@ -41,11 +41,12 @@ set fish_pager_color_secondary $red # the background color of the every second c
 
 set fish_greeting ""
 
-# set -x PATH "$HOME/.pyenv/bin" $PATH
 
 bass source ~/.aliases
 bass source ~/.envvariables
 
+alias loadpyenv="set -x PATH "$HOME/.pyenv/bin" $PATH ; status --is-interactive; and source (pyenv init -|psub); status --is-interactive; and source (pyenv virtualenv-init -|psub)"
+# set -x PATH "$HOME/.pyenv/bin" $PATH
 # status --is-interactive; and source (pyenv init -|psub)
 # status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
