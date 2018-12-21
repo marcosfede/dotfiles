@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 " themes
-Plug 'lifepillar/vim-solarized8'
+" Plug 'lifepillar/vim-solarized8'
+Plug 'KeitaNakamura/neodark.vim'
 "functionality
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -20,8 +21,9 @@ if (has("termguicolors"))
   set termguicolors
 endif
 set background=dark    " Setting dark mode
+let g:neodark#background = '#202020'
 let g:airline_powerline_fonts = 1
-colorscheme solarized8
+colorscheme neodark
 " airline options
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
