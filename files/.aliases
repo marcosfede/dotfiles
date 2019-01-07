@@ -24,6 +24,8 @@ fi
 alias fixmonitor='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0'
 alias cleandocker='docker rm -v (docker ps -a -q -f status=exited); docker rmi (docker images -f "dangling=true" -q)'
 alias gs="git status"
+alias gl="git log --graph --decorate --pretty=oneline --abbrev-commit --all"
+alias gco="git checkout"
 alias py='python3'
 alias python='python3'
 alias pip='pip3'
@@ -39,9 +41,10 @@ alias ....='cd ../../..'
 alias e='exit'
 alias s='sudo'
 alias shutdown='sudo shutdown -h now'
-alias evim='nvim ~/.config/nvim/init.vim'
-alias efish='nvim ~/.config/fish/config.fish'
+alias evim='vim ~/.config/nvim/init.vim'
+alias efish='vim ~/.config/fish/config.fish'
 alias upgradeallpip="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
 alias eip="curl ifconfig.io"
 alias lip="ifconfig | grep 192.168"
 alias dev="cd ~/dev"
+alias nvim='vim'
