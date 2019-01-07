@@ -31,6 +31,7 @@ export EDITOR='nvim'
 
 source ~/.aliases
 source ~/.envvariables
+source ~/.localenvvariables
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
