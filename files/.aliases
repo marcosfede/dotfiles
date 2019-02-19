@@ -52,3 +52,7 @@ alias lip="ifconfig | grep 192.168"
 alias dev="cd ~/dev"
 alias openports="netstat -anp tcp | grep -i 'listen'"
 alias c="code ."
+
+sourceenv() {
+	export $(grep -v '^#' "$1" | xargs -d '\n')
+}

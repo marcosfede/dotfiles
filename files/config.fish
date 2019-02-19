@@ -46,10 +46,9 @@ bass source ~/.aliases
 bass source ~/.envvariables
 
 alias loadpyenv="set -x PATH "$HOME/.pyenv/bin" $PATH ; status --is-interactive; and source (pyenv init -|psub); status --is-interactive; and source (pyenv virtualenv-init -|psub)"
-
-set -x PATH "$HOME/.pyenv/bin" $PATH
-status --is-interactive; and source (pyenv init -|psub)
-status --is-interactive; and source (pyenv virtualenv-init -|psub)
+#set -x PATH "$HOME/.pyenv/bin" $PATH
+#status --is-interactive; and source (pyenv init -|psub)
+#status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
 function sudo
     if test "$argv" = !!
@@ -58,4 +57,3 @@ function sudo
         command sudo $argv
     end
 end
-
