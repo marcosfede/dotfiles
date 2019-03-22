@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-if [ $# -eq 0 ]
-then
-	echo "no activate.fish path provided"
-else
-	sed -i -n -E 's/"\$\((.+)\) "/"\(\1\) "/g' $1
-fi

@@ -55,5 +55,5 @@ alias c="code ."
 alias rmpycache="find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf"
 
 sourceenv() {
-	export $(cat "$1" | xargs)
+	export $(grep -v '^#' "$1" | xargs -d '\n')
 }
