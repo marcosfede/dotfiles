@@ -21,6 +21,7 @@ rm ~/.aliases
 ln -s ~/dotfiles/files/.aliases ~/.aliases
 touch ~/.hushlogin
 
+mkdir ~/.npm-global
 # zsh stuff
 # ZSH_CUSTOM="~/.oh-my-zsh/custom"
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

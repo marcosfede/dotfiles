@@ -12,6 +12,7 @@ export GOPATH=$HOME/Projects/go
 export EDITOR=vim
 export GIT_EDITOR=vim
 export VIRTUAL_ENV_DISABLE_PROMPT=true
+export NPM_CONFIG_PREFIX=~/.npm-global
 
 source ~/.localenvvariables
 
