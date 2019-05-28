@@ -24,7 +24,6 @@ touch ~/.hushlogin
 ZSH_CUSTOM="~/.oh-my-zsh/custom"
 mkdir ~/.antigen
 curl -L git.io/antigen > ~/.antigen/antigen.zsh
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 rm ~/.zshrc ~/.envvariables
 ln -s ~/dotfiles/files/.zshrc ~/.zshrc
 ln -s ~/dotfiles/files/.envvariables ~/.envvariables

@@ -6,7 +6,9 @@ cd scripts
 bash fede-git-config.sh
 bash vimconfig.sh
 bash sshkeys.sh
-bash prompts.sh
+bash zsh.sh
+bash fish.sh
+bash fixes.sh
 
 cd linux/arch
 ./swap 4G
