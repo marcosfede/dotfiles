@@ -8,7 +8,8 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 export PATH="$HOME/bin:$HOME/.yarn/bin:$PATH"
-export GOPATH=$HOME/Projects/go
+export PATH="$PATH:$HOME/.npm-global/bin"
+export GOPATH=$HOME/dev/go
 export EDITOR=vim
 export GIT_EDITOR=vim
 export VIRTUAL_ENV_DISABLE_PROMPT=true

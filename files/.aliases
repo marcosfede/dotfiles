@@ -22,7 +22,9 @@ elif [[ $platform == 'mac' ]]; then
 	alias lightsoff='pmset displaysleepnow'
 fi
 
-alias fixmonitor='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0'
+alias fixm='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0'
+alias fix3m='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0 --output DP-1 --left-of HDMI-0'
+alias offtv='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0 --output DP-1 --off'
 alias cleandocker='docker rm -v (docker ps -a -q -f status=exited); docker rmi (docker images -f "dangling=true" -q)'
 alias gs="git status"
 alias gl="git log --graph --decorate --pretty=oneline --abbrev-commit --all"
