@@ -31,7 +31,7 @@ alias dc='docker-compose'
 alias dcu='docker-compose up'
 alias dcub='docker-compose up --build'
 alias dcd='docker-compose down'
-alias dcupfr='docker-compose up --build --force-recreate'
+alias dcubfr='docker-compose up --build --force-recreate'
 alias d='docker'
 alias dsp='docker system prune -f'
 
