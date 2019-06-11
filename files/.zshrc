@@ -27,7 +27,7 @@ antigen apply
 # export MNML_RPROMPT=('mnml_cwd 2 0')
 
 # default editor
-export EDITOR='nvim'
+export EDITOR='vim'
 
 source ~/.aliases
 source ~/.envvariables
