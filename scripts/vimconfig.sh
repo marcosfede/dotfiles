@@ -8,9 +8,10 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 if [[ $platform == 'linux' ]]; then
 	echo "setting up VIM"
-	sudo pacman -S neovim
+	sudo pacman -S vim 
+	sudo apt install vim vim-gtk
 elif [[ $platform == 'mac' ]]; then
-	brew install neovim
+	brew install vim
 fi
 mkdir -p ~/.config/nvim/
 rm ~/.config/nvim/init.vim ~/.vimrc

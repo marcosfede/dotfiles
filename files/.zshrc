@@ -6,7 +6,6 @@ antigen use oh-my-zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git # completions
 antigen bundle pip # completions
-antigen bundle command-not-found # suggested instructions
 antigen bundle docker # completions
 antigen bundle docker-compose # completions
 antigen bundle fzf
@@ -28,10 +27,8 @@ antigen apply
 # export MNML_RPROMPT=('mnml_cwd 2 0')
 
 # default editor
-export EDITOR='nvim'
+export EDITOR='vim'
 
 source ~/.aliases
 source ~/.envvariables
 source ~/.localenvvariables
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
