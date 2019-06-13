@@ -40,6 +40,9 @@ alias python='python3'
 alias pip='pip3'
 alias upgradeallpip="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
 alias rmpycache='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
+jupytervenv(){
+	pip install ipykernel && ipython kernel install --user --name=$1
+}
 
 alias poke='bash ~/dotfiles/files/poke.txt'
 alias preschedules='node ~/Projects/preschtocalnode/nightmare.js'
