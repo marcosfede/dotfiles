@@ -15,6 +15,7 @@ if [[ $platform == 'linux' ]]; then
 	alias apu='sudo apt purge'
 	alias au='sudo apt update'
 	alias aup='sudo apt upgrade'
+	alias auu='sudo apt update && sudo apt upgrade -y'
 	alias acs='apt-cache search'
 	alias autoremove='sudo apt autoremove'
 elif [[ $platform == 'mac' ]]; then
