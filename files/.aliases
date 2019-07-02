@@ -35,6 +35,8 @@ alias dcd='docker-compose down'
 alias dcubfr='docker-compose up --build --force-recreate'
 alias d='docker'
 alias dsp='docker system prune -f'
+alias dcs='docker container stop $(docker ps -qa)'
+alias dps='docker ps'
 
 alias gs="git status"
 alias gl="git log --graph --decorate --pretty=oneline --abbrev-commit --all"
