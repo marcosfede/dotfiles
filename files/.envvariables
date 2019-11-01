@@ -9,6 +9,7 @@ fi
 
 export PATH="$HOME/bin:$HOME/.yarn/bin:$PATH"
 export PATH="$PATH:$HOME/.npm-global/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 export GOPATH=$HOME/dev/go
 export EDITOR=vim
 export GIT_EDITOR=vim

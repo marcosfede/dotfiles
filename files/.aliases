@@ -97,3 +97,7 @@ source_env() {
     fi
   fi
 }
+checkout_pr() {
+	PR=$1
+	git fetch origin pull/$PR/head:pr/$PR && git checkout pr/$PR
+}
