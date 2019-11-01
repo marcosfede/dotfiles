@@ -23,9 +23,11 @@ elif [[ $platform == 'mac' ]]; then
 	alias lightsoff='pmset displaysleepnow'
 fi
 
-alias fixm='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0'
-alias fix3m='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0 --output DP-1 --left-of HDMI-0'
-alias offtv='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0 --output DP-1 --off'
+# alias fixm='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0'
+alias mleft='xrandr --output DVI-D-0 --off --output HDMI-0 --auto'
+alias mright='xrandr --output DVI-D-0 --auto --output HDMI-0 --off'
+alias m3='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0 --output DP-1 --left-of HDMI-0'
+alias m2='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0 --output DP-1 --off'
 
 alias cleandocker='docker rm -v (docker ps -a -q -f status=exited); docker rmi (docker images -f "dangling=true" -q)'
 alias dc='docker-compose'
@@ -41,12 +43,18 @@ alias dps='docker ps'
 alias gs="git status"
 alias gl="git log --graph --decorate --pretty=oneline --abbrev-commit --all"
 alias gco="git checkout"
+alias ga="git add ."
+alias gc="git commit"
+alias gcob="git checkout -b"
+
+
 
 alias py='python3'
 alias ipy='ipython'
 alias python='python3'
 alias pip='pip3'
 alias upgradeallpip="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
+alias cleanvenv="pip freeze | grep -v '^-e' | xargs pip uninstall -y"
 alias rmpycache='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
 jupytervenv(){
 	pip install ipykernel && ipython kernel install --user --name=$1

@@ -32,3 +32,5 @@ export EDITOR='vim'
 source ~/.aliases
 source ~/.envvariables
 source ~/.localenvvariables
+
+[[ -f /etc/profile.d/vte.sh ]] && . /etc/profile.d/vte.sh
