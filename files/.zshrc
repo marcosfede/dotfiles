@@ -34,3 +34,5 @@ source ~/.envvariables
 source ~/.localenvvariables
 
 [[ -f /etc/profile.d/vte.sh ]] && . /etc/profile.d/vte.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
