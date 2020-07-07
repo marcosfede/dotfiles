@@ -1,15 +1,15 @@
 let using_neovim = has('nvim')
 let using_vim = !using_neovim
 
+if has('python3')
+endif
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " file browser
 Plug 'scrooloose/nerdcommenter' " code comment
-" Plug 'tpope/vim-commentary' " another comment plugin
 Plug 'vim-scripts/IndexedSearch' " Search results counter
-Plug 'KeitaNakamura/neodark.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'Raimondi/delimitMate' " auto close parenthesis, etc
+" Plug 'Raimondi/delimitMate' " auto close parenthesis, etc
 Plug 'tpope/vim-surround' " surround
 Plug 'tpope/vim-fugitive' " git
 Plug 'michaeljsmith/vim-indent-object' " indent text object
@@ -25,14 +25,15 @@ Plug 'vim-airline/vim-airline' " airline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'jremmen/vim-ripgrep'
 Plug 'mbbill/undotree'
+Plug 'vuciv/vim-bujo'
 " language specific
 " Plug 'git@github.com:moll/vim-node.git'
-" Plug 'hotoo/jsgf.vim'
 " Plug 'rust-lang/rust.vim'
-" Plug 'fatih/vim-go'
-" Plug 'git@github.com:ajh17/VimCompletesMe.git'
-Plug 'git@github.com:Valloric/YouCompleteMe.git'
-Plug 'leafgarland/typescript-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'git@github.com:Valloric/YouCompleteMe.git'
+" themes
+Plug 'KeitaNakamura/neodark.vim'
+Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
 if (using_neovim)
@@ -76,14 +77,27 @@ set hlsearch
 set incsearch " set incremental search, like modern browsers
 set ls=2 " always show status bar
 set wildmode=list:longest " autocompletion of files and commands behaves like shell (complete only the common part, list the options that match)
+set guicursor=
+set smartindent
+set scrolloff=8
 " save as sudo
 ca w!! w !sudo tee "%"
-
-set shell=/bin/bash " fix problems with uncommon shells (fish, xonsh) and plugins running commands
+" Give more space for displaying messages.
+set cmdheight=2
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
+set updatetime=250
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 
 " THEME
-set background=dark    " Setting dark mode
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_invert_selection='0'
 let g:neodark#background = '#202020'
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+set background=dark    " Setting dark mode
 colorscheme neodark
 
 " nerdtree
@@ -91,27 +105,16 @@ let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden=1 " show hidden files in NERDTree
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
-" rust
-" let g:racer_cmd = "~/.cargo/bin/racer"
-" let g:racer_experimental_completer = 1
+" vim TODO
+let g:bujo#todo_file_path = $HOME . "/.cache/bujo"
 
-" Python
-" Ability to add python breakpoints
-au FileType python map <silent> <leader>b Oimport ipdb; ipdb.set_trace()<esc>
-
-" Go
-let g:go_fmt_command = "goimports"
-
-" You Complete Me
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-let g:ycm_max_diagnostics_to_display=0
-" DEBUG STUFFS
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_log_level = 'debug'
-let g:ycm_warning_symbol = '.'
-let g:ycm_error_symbol = '..'
-let g:ycm_server_use_vim_stdout = 1
+" Autocompletion
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd BufEnter *.tsx set filetype=typescript
 
 " airline options
 let g:airline_powerline_fonts = 1
@@ -120,7 +123,7 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='base16'
 
-" KEY BINDINGS ==============================
+" ==========  KEY BINDINGS ==========================================================
 
 let mapleader= " "
 
@@ -147,20 +150,30 @@ vmap <Leader>= <C-W><C-=>
 nnoremap <silent> // :noh<CR>
 
 " YCM
-nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
-nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
+" nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
+" nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
 
-" Autocompletion
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
-autocmd BufEnter *.tsx set filetype=typescript
+" COC
+inoremap <silent><expr> <C-space> coc#refresh()
+
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gy <Plug>(coc-type-definition)
+nmap <leader>gi <Plug>(coc-implementation)
+nmap <leader>gr <Plug>(coc-references)
+nmap <leader>rr <Plug>(coc-rename)
+nmap <leader>g[ <Plug>(coc-diagnostic-prev)
+nmap <leader>g] <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
+nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
+nnoremap <leader>cr :CocRestart
+
+" FuGITive
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gu :diffget //2<CR>
+nmap <leader>gs :G<CR>
+
+" Ability to add python breakpoints
+au FileType python map <silent> <leader>b Oimport ipdb; ipdb.set_trace()<esc>
 
 " Fzf
 " file finder mapping
@@ -184,9 +197,13 @@ nmap ,wF :execute ":Lines " . expand('<cword>')<CR>
 " commands finder mapping
 nmap ,c :Commands<CR>
 
+" Undotree
 nnoremap <leader>u :UndotreeShow<CR>
 
 " Window Chooser
 nmap  -  <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1 " show big letters
 
+" vim TODO
+nmap <Leader>tu <Plug>BujoChecknormal
+nmap <Leader>th <Plug>BujoAddnormal
