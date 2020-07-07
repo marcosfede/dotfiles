@@ -23,11 +23,10 @@ elif [[ $platform == 'mac' ]]; then
 	alias lightsoff='pmset displaysleepnow'
 fi
 
-# alias fixm='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0'
-alias mleft='xrandr --output DVI-D-0 --off --output HDMI-0 --auto'
-alias mright='xrandr --output DVI-D-0 --auto --output HDMI-0 --off'
-alias m3='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0 --output DP-1 --left-of HDMI-0'
-alias m2='xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0 --output DP-1 --off'
+alias mleft='xrandr --output DVI-D-0 --off --output DP-1 --auto --mode 1920x1080'
+alias mright='xrandr --output DVI-D-0 --auto --mode 1920x1080 --output DP-1 --off'
+alias m2='xrandr --output DVI-D-0 --auto --mode 1920x1080 --output DP-1 --auto --mode 1920x1080 --left-of DVI-D-0 --output HDMI-D-0 --off'
+# alias m3='xrandr --auto && xrandr --auto  && xrandr --output DVI-D-0 --auto --output HDMI-0 --auto --left-of DVI-D-0 --output DP-1 --left-of HDMI-0'
 
 alias cleandocker='docker rm -v (docker ps -a -q -f status=exited); docker rmi (docker images -f "dangling=true" -q)'
 alias dc='docker-compose'
@@ -108,4 +107,20 @@ source_env() {
 checkout_pr() {
 	PR=$1
 	git fetch origin pull/$PR/head:pr/$PR && git checkout pr/$PR
+}
+git_list_size(){
+    # work over each commit and append all files in tree to $tempFile
+    tempFile=$(mktemp)
+    IFS=$'\n'
+    for commitSHA1 in $(git rev-list --all); do
+        git ls-tree -r --long "$commitSHA1" >>"$tempFile"
+    done
+
+    # sort files by SHA1, de-dupe list and finally re-sort by filesize
+    sort --key 3 "$tempFile" | \
+        uniq | \
+        sort --key 4 --numeric-sort --reverse
+
+    # remove temp file
+    rm "$tempFile"
 }
