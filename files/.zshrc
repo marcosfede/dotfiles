@@ -34,3 +34,13 @@ source ~/.envvariables
 source ~/.localenvvariables
 
 [[ -f /etc/profile.d/vte.sh ]] && . /etc/profile.d/vte.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+LS_COLORS+=':ow='
+
+# keyboard speed
+xset r rate 200 50
+
+# broot
+[ -f ~/.config/broot/launcher/bash/br ] && source ~/.config/broot/launcher/bash/br
