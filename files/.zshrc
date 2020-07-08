@@ -1,3 +1,11 @@
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='mac'
+fi
+
 source ~/.antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -40,7 +48,9 @@ source ~/.envvariables
 LS_COLORS+=':ow='
 
 # keyboard speed
-xset r rate 200 50
+if [[ $platform == 'linux' ]]; then
+    xset r rate 200 50
+fi
 
 # broot
 [ -f ~/.config/broot/launcher/bash/br ] && source ~/.config/broot/launcher/bash/br
