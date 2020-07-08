@@ -82,8 +82,6 @@ alias openports="netstat -anp tcp | grep -i 'listen'"
 
 alias c="code ."
 
-alias nvim=vim
-
 loadpyenv(){
 	export PATH="$PATH:$HOME/.pyenv/bin"
 	eval "$(pyenv init -)"
