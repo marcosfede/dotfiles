@@ -1,14 +1,13 @@
 let using_neovim = has('nvim')
 let using_vim = !using_neovim
 
-if has('python3')
-endif
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " file browser
 Plug 'scrooloose/nerdcommenter' " code comment
 Plug 'vim-scripts/IndexedSearch' " Search results counter
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 " Plug 'Raimondi/delimitMate' " auto close parenthesis, etc
 Plug 'tpope/vim-surround' " surround
 Plug 'tpope/vim-fugitive' " git
@@ -16,14 +15,12 @@ Plug 'michaeljsmith/vim-indent-object' " indent text object
 Plug 'jeetsukumaran/vim-indentwise' " Indentation based movements
 Plug 'sheerun/vim-polyglot' " Better language packs
 Plug 'lilydjwg/colorizer' " Paint css colors with the real color
-Plug 't9md/vim-choosewin' " Window chooser
 Plug 'valloric/MatchTagAlways' " Highlight matching html tags
 Plug 'mattn/emmet-vim' " emmet
 Plug 'vim-scripts/YankRing.vim' " yank history navigation
 Plug 'vim-utils/vim-man' " see man pages in vim
 Plug 'vim-airline/vim-airline' " airline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
-Plug 'jremmen/vim-ripgrep'
 Plug 'mbbill/undotree'
 Plug 'vuciv/vim-bujo'
 " language specific
@@ -41,10 +38,6 @@ if (using_neovim)
 endif
 if (has("termguicolors"))
   set termguicolors
-endif
-
-if executable('rg')
-    let g:rg_derive_root='true'
 endif
 
 set nocompatible " disable vi compat
@@ -123,6 +116,40 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='base16'
 
+" FZF
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+let g:fzf_buffers_jump = 1
+let $FZF_DEFAULT_OPTS = '--layout=reverse --inline-info'
+let $FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git/**'"
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+"
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Overrite FZF Files command
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--inline-info']}), <bang>0)
+
+ " Make Ripgrep ONLY search file contents and not filenames
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --hidden --smart-case --no-heading --color=always --glob "!.git/*" '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4.. -e'}, 'right:50%', '?'),
+  \   <bang>0)
 " ==========  KEY BINDINGS ==========================================================
 
 let mapleader= " "
@@ -136,22 +163,19 @@ map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
 nnoremap <Leader>gd :GoDef<Enter>
-nnoremap <Leader>pt :NERDTreeToggle<Enter>
-noremap <silent> <Leader>pv :NERDTreeFind<CR>
+nnoremap <Leader>n :NERDTreeToggle<Enter>
+nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
 nnoremap <silent> <Leader>vr :vertical resize 30<CR>
 nnoremap <silent> <Leader>r+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>r- :vertical resize -5<CR>
 nnoremap <silent> <Leader>;; iif err != nil { <esc>o} <esc>:w<CR>
+" select entire line with double leader
 nmap <leader><leader> V
 vmap <Leader>y "+y
 vmap <Leader>= <C-W><C-=>
 
 " clear search results
 nnoremap <silent> // :noh<CR>
-
-" YCM
-" nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
-" nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
 
 " COC
 inoremap <silent><expr> <C-space> coc#refresh()
@@ -172,37 +196,22 @@ nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
 
-" Ability to add python breakpoints
-au FileType python map <silent> <leader>b Oimport ipdb; ipdb.set_trace()<esc>
-
 " Fzf
 " file finder mapping
-nmap ,e :Files<CR>
-" tags (symbols) in current file finder mapping
-nmap ,g :BTag<CR>
-" the same, but with the word under the cursor pre filled
-nmap ,wg :execute ":BTag " . expand('<cword>')<CR>
-" tags (symbols) in all files finder mapping
-nmap ,G :Tags<CR>
-" the same, but with the word under the cursor pre filled
-nmap ,wG :execute ":Tags " . expand('<cword>')<CR>
+nmap <leader>e :Files<CR>
 " general code finder in current file mapping
-nmap ,f :BLines<CR>
+nmap <leader>f :BLines<CR>
 " the same, but with the word under the cursor pre filled
-nmap ,wf :execute ":BLines " . expand('<cword>')<CR>
+nmap <leader>wf :execute ":BLines " . expand('<cword>')<CR>
 " general code finder in all files mapping
-nmap ,F :Lines<CR>
+nmap <leader>F :Lines<CR>
 " the same, but with the word under the cursor pre filled
-nmap ,wF :execute ":Lines " . expand('<cword>')<CR>
-" commands finder mapping
-nmap ,c :Commands<CR>
+nmap <leader>wF :execute ":Lines " . expand('<cword>')<CR>
+nmap <leader>b :Buffers<CR>
+nnoremap <leader>g :Rg<CR>
 
 " Undotree
 nnoremap <leader>u :UndotreeShow<CR>
-
-" Window Chooser
-nmap  -  <Plug>(choosewin)
-let g:choosewin_overlay_enable = 1 " show big letters
 
 " vim TODO
 nmap <Leader>tu <Plug>BujoChecknormal
