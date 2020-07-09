@@ -46,8 +46,9 @@ filetype indent on
 syntax on " syntax highlight on
 set noswapfile
 set nobackup
+set nowritebackup
 set encoding=utf-8
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 set noerrorbells " disable beeping
 set vb t_vb= " disable beeping
 set rnu " enable relative line numbers
@@ -150,6 +151,7 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
   \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4.. -e'}, 'right:50%', '?'),
   \   <bang>0)
+
 " ==========  KEY BINDINGS ==========================================================
 
 let mapleader= " "
@@ -177,10 +179,19 @@ vmap <Leader>= <C-W><C-=>
 nnoremap <silent> // :noh<CR>
 
 " COC
-inoremap <silent><expr> <C-space> coc#refresh()
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gy <Plug>(coc-type-definition)
+nmap <leader>gt <Plug>(coc-type-definition)
 nmap <leader>gi <Plug>(coc-implementation)
 nmap <leader>gr <Plug>(coc-references)
 nmap <leader>rr <Plug>(coc-rename)
@@ -188,6 +199,7 @@ nmap <leader>g[ <Plug>(coc-diagnostic-prev)
 nmap <leader>g] <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
+nnoremap <silent><nowait> <leader>ge  :<C-u>CocList diagnostics<cr>
 nnoremap <leader>cr :CocRestart
 
 " FuGITive
