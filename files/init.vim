@@ -91,7 +91,7 @@ if exists('+termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 set background=dark    " Setting dark mode
-colorscheme neodark
+colorscheme gruvbox
 
 " nerdtree
 let NERDTreeMinimalUI = 1
@@ -164,11 +164,10 @@ map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
 nnoremap <Leader>gd :GoDef<Enter>
 nnoremap <Leader>n :NERDTreeToggle<Enter>
-nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
+nnoremap <silent> <Leader>tf :NERDTreeFind<CR>
 nnoremap <silent> <Leader>vr :vertical resize 30<CR>
 nnoremap <silent> <Leader>r+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>r- :vertical resize -5<CR>
-nnoremap <silent> <Leader>;; iif err != nil { <esc>o} <esc>:w<CR>
 " select entire line with double leader
 nmap <leader><leader> V
 vmap <Leader>y "+y
@@ -198,7 +197,7 @@ nmap <leader>gs :G<CR>
 
 " Fzf
 " file finder mapping
-nmap <leader>e :Files<CR>
+nmap <leader>p :Files<CR>
 " general code finder in current file mapping
 nmap <leader>f :BLines<CR>
 " the same, but with the word under the cursor pre filled
