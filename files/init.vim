@@ -40,6 +40,8 @@ endif
 if (has("termguicolors"))
   set termguicolors
 endif
+let g:rg_derive_root='true'
+
 
 set nocompatible " disable vi compat
 filetype plugin on " allow plugins by file type (required for plugins!)
@@ -62,7 +64,6 @@ set tabstop=4 " the visible width of tabs
 set softtabstop=4 " edit as if the tabs are 4 characters wide
 set shiftwidth=4 " number of spaces to use for indent and unindent
 set shiftround " round indent to a multiple of 'shiftwidth'
-set autochdir " sets the cwd to whatever file is in view.  This allows better omni completion.
 autocmd BufWritePre * %s/\s\+$//e " unix file endings
 set hidden " opening a new file when the current buffer has unsaved changes causes files to be hidden instead of closed
 set title " set terminal title
@@ -96,6 +97,9 @@ endif
 set background=dark    " Setting dark mode
 colorscheme gruvbox
 
+" stop vim-router changing dir automatically
+let g:rooter_manual_only = 1
+
 " nerdtree
 let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden=1 " show hidden files in NERDTree
@@ -123,7 +127,7 @@ let g:airline_theme='base16'
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_buffers_jump = 1
 let $FZF_DEFAULT_OPTS = '--layout=reverse --inline-info'
-let $FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git/**'"
+let $FZF_DEFAULT_COMMAND="rg --files -uu --follow --glob '!**/.git/**' --glob '!**/node_modules/**'"
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 "
 " Customize fzf colors to match your color scheme
