@@ -16,6 +16,7 @@ Plug 'jeetsukumaran/vim-indentwise' " Indentation based movements
 Plug 'sheerun/vim-polyglot' " Better language packs
 Plug 'lilydjwg/colorizer' " Paint css colors with the real color
 Plug 'valloric/MatchTagAlways' " Highlight matching html tags
+Plug 'nelstrom/vim-visual-star-search' " visual search with * and #
 Plug 'mattn/emmet-vim' " emmet
 Plug 'vim-scripts/YankRing.vim' " yank history navigation
 Plug 'vim-utils/vim-man' " see man pages in vim
@@ -74,12 +75,13 @@ set wildmode=list:longest " autocompletion of files and commands behaves like sh
 set guicursor=
 set smartindent
 set scrolloff=8
+set mouse=a " scroll with mouse
 " save as sudo
 ca w!! w !sudo tee "%"
 " Give more space for displaying messages.
 set cmdheight=2
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
-set updatetime=250
+set updatetime=50
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
@@ -152,9 +154,21 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4.. -e'}, 'right:50%', '?'),
   \   <bang>0)
 
+" COC
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 " ==========  KEY BINDINGS ==========================================================
 
 let mapleader= " "
+
+" search and replace stuff
+nnoremap <leader>r :%s///g<Left><Left>
+nnoremap <leader>rc :%s///gc<Left><Left><Left>
+xnoremap <leader>r :s///g<Left><Left>
+xnoremap <leader>rc :s///gc<Left><Left><Left>
+" type a replacement term and press . to repeat. comparable to multiple cursors
+nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> s* :sy:let @/=@s<CR>cgn
 
 " For simple sizing of splits.
 map - <C-W>-
@@ -174,6 +188,9 @@ nnoremap <silent> <Leader>r- :vertical resize -5<CR>
 nmap <leader><leader> V
 vmap <Leader>y "+y
 vmap <Leader>= <C-W><C-=>
+" navigate through buffers
+nnoremap <leader>bn :bnext<CR>
+nnoremap <leader>bp :bprevious<CR>
 
 " clear search results
 nnoremap <silent> // :noh<CR>
